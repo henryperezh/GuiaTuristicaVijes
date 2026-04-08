@@ -295,6 +295,7 @@ const places = [
   { id:62, name:'Licorera La Mina Rancho y Licores', cat:'bailaderos', subcat:'', icon:'🍹', color:'morado', desc:'Rancho, licores y rumba en Vijes.', lat:3.7000694, lng:-76.4424918 },
 
   // MUSEOS
+  { id:63, name:'Museo Santa Bárbara', cat:'museo', subcat:'', icon:'🏛️', color:'morado', desc:'Museo histórico y cultural del municipio de Vijes.', lat:3.700805, lng:-76.442994, horario:'', telefono:'', precio:'' },
   { id:70, name:'Museo Comunitario Horno Artesanal El Diamante', cat:'museo', subcat:'', icon:'🏺', color:'dorado', desc:'Museo comunitario con horno artesanal tradicional de Vijes.', lat:3.707429, lng:-76.453182, horario:'', telefono:'', precio:'' },
 
   // ARTESANÍAS
@@ -584,14 +585,4 @@ render();
 function togglePlan() {
   const detalle = document.getElementById('plan-detalle');
   const txt = document.getElementById('plan-toggle-txt');
-  if (detalle.style.display === 'none') {
-    detalle.style.display = 'block';
-    txt.innerHTML = '▲ Cerrar itinerario';
-  } else {
-    detalle.style.display = 'none';
-    txt.innerHTML = '▼ Ver itinerario';
-  }
-}
-</script>
-</body>
-</html>
+  if (detalle.style.di
