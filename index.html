@@ -396,6 +396,9 @@ function getCatLabel(p) {
     guias: 'Guía Local'
   };
   if (p.cat === 'restaurantes') return labels.restaurantes[p.subcat] || 'Restaurante';
+  if (p.cat === 'guias') return 'Guía Local';
+  if (p.cat === 'sitios') return 'Sitio Cultural';
+  if (p.cat === 'natural') return 'Atractivo Natural';
   return labels[p.cat] || p.cat;
 }
 
@@ -557,4 +560,54 @@ function render() {
     return;
   }
 
-  let html = `<div class="section-title"><h3 style="color:${titleColor}">${catTitle[currentTab]||''}</h3><span class="count">${f
+  let html = `<div class="section-title"><h3 style="color:${titleColor}">${catTitle[currentTab]||''}</h3><span class="count">${filtered.length}</span></div><div class="cards-grid">`;
+
+  filtered.forEach(p => {
+    const label = getCatLabel(p);
+    const btnColor = p.color;
+    const horario = p.horario || '<span class=\'pending\'>Próximamente</span>';
+    const telefono = p.telefono
+      ? `<a href="https://wa.me/57${p.telefono.replace(/\D/g,'')}" onclick="event.stopPropagation()">${p.telefono}</a>`
+      : '<span class=\'pending\'>Próximamente</span>';
+    const precioRow = p.cat === 'hoteles' ? `<div class="card-extra-row"><span class="label">💰 Precio:</span> ${p.precio || '<span class=\'pending\'>Próximamente</span>'}</div>` : '';
+
+    html += `<div class="place-card" onclick="window.open('https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}','_blank')">
+      <div class="card-header">
+        <div class="card-icon ${p.color}">${p.icon}</div>
+        <div class="card-info">
+          <div class="card-name">${p.name}</div>
+          <span class="card-category cat-${p.color}">${label}</span>
+        </div>
+      </div>
+      ${p.desc ? `<div class="card-desc">${p.desc}</div>` : ''}
+      <div class="card-extra">
+        <div class="card-extra-row"><span class="label">🕐 Horario:</span> ${horario}</div>
+        <div class="card-extra-row"><span class="label">📱 Contacto:</span> ${telefono}</div>
+        ${precioRow}
+      </div>
+      <div class="card-footer">
+        <a class="map-btn ${btnColor}" href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}" target="_blank" onclick="event.stopPropagation()">Ver en mapa ↗</a>
+      </div>
+    </div>`;
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+render();
+
+function togglePlan() {
+  const detalle = document.getElementById('plan-detalle');
+  const txt = document.getElementById('plan-toggle-txt');
+  if (detalle.style.display === 'none') {
+    detalle.style.display = 'block';
+    txt.innerHTML = '▲ Cerrar itinerario';
+  } else {
+    detalle.style.display = 'none';
+    txt.innerHTML = '▼ Ver itinerario';
+  }
+}
+</script>
+</body>
+</html>
