@@ -205,6 +205,8 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
   <button class="tab" onclick="switchTab('museo',this)">🏛️ Museos</button>
   <button class="tab" onclick="switchTab('artesanias',this)">🧵 Artesanías</button>
   <button class="tab" onclick="switchTab('guias',this)">🧭 Guías</button>
+  <button class="tab" onclick="switchTab('sitios',this)">🗿 Sitios culturales</button>
+  <button class="tab" onclick="switchTab('natural',this)">🌿 Atractivos naturales</button>
 </div>
 
 <!-- SUBFILTERS -->
@@ -320,6 +322,13 @@ const places = [
   { id:66, name:'Yuli García', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', lat:3.7006, lng:-76.4424, horario:'', telefono:'3154976568', precio:'' },
   { id:67, name:'Danny Ruiz', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', lat:3.7006, lng:-76.4424, horario:'', telefono:'3122364325', precio:'' },
   { id:68, name:'Roxana Ponce', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', lat:3.7006, lng:-76.4424, horario:'', telefono:'3015051133', precio:'' },
+
+  // SITIOS CULTURALES
+  { id:71, name:'Piedra del Sol', cat:'sitios', subcat:'', icon:'🌞', color:'dorado', desc:'Monolito con grabados precolombinos ubicado en la vereda La Pedrera, a 4 km del casco urbano. Uno de los petroglifos más importantes de la región.', lat:3.7260431, lng:-76.4540485, horario:'', telefono:'', precio:'' },
+  { id:72, name:'Piedra del Indio', cat:'sitios', subcat:'', icon:'🪨', color:'dorado', desc:'Grabados rupestres ancestrales que revelan la presencia de culturas precolombinas en el territorio vijeño.', lat:3.7635312, lng:-76.5182917, horario:'', telefono:'', precio:'' },
+
+  // ATRACTIVOS NATURALES
+  { id:73, name:'Vuelta de los Ataúdes', cat:'natural', subcat:'', icon:'⚰️', color:'verde', desc:'Formación geológica de diabasas columnares con vestigios del fin de una era volcánica. Un paisaje imponente al costado de la carretera.', lat:3.7138795, lng:-76.4566271, horario:'', telefono:'', precio:'' },
 
   // COMIDAS RÁPIDAS
   { id:52, name:'Condorito Doriloco', cat:'rapidas', subcat:'', icon:'🌮', color:'morado', desc:'Comidas rápidas con sabor.', lat:3.6992399, lng:-76.4413238 },
@@ -478,6 +487,16 @@ function render() {
           </div>
         </div>
         <div class="exp-card">
+          <div class="exp-banner" style="background:linear-gradient(135deg,#fff3d4,#d4a040)">🗿</div>
+          <div class="exp-body">
+            <h4>Recorrido Misterioso</h4>
+            <p>Descubre los secretos ancestrales de Vijes: la Piedra del Sol, la Piedra del Indio y la impresionante Vuelta de los Ataúdes.</p>
+            <div class="exp-tags"><span class="exp-tag dorado">🌞 Arqueología</span><span class="exp-tag dorado">⚰️ Geología</span><span class="exp-tag dorado">⏱️ ~3 horas</span></div>
+            <p class="exp-pending">📍 Punto de encuentro: Pendiente · 💰 Precio: Pendiente</p>
+            <a class="btn-exp dorado" href="https://wa.me/57PENDIENTE?text=Hola,%20me%20interesa%20el%20recorrido%20misterioso%20de%20Vijes%20😊" target="_blank">Reservar con guía ↗</a>
+          </div>
+        </div>
+        <div class="exp-card">
           <div class="exp-banner" style="background:linear-gradient(135deg,#e8f4fd,#a0d4f0)">🦜</div>
           <div class="exp-body">
             <h4>Aviturismo en Vijes</h4>
@@ -502,7 +521,7 @@ function render() {
   const catTitle = {
     descubre:'Descubre Vijes', hoteles:'Hoteles y Hospedaje', restaurantes:'Restaurantes', dulces:'Dulces Típicos de Vijes',
     cafeterias:'Cafeterías y Panaderías', heladerias:'Heladerías', rapidas:'Comidas Rápidas',
-    bailaderos:'Bailaderos y Rumba', museo:'Museos y Cultura', artesanias:'Tienda Artesanal', guias:'Guías Locales'
+    bailaderos:'Bailaderos y Rumba', museo:'Museos y Cultura', artesanias:'Tienda Artesanal', guias:'Guías Locales', sitios:'Sitios Culturales', natural:'Atractivos Naturales'
   };
 
   const titleColor = ['hoteles','museo','artesanias','dulces','dorado'].includes(currentTab) ? '#C98A1A' : currentTab === 'restaurantes' ? '#9B5FC0' : ['guias','bailaderos','heladerias','verde'].includes(currentTab) ? '#52a018' : '#9B5FC0';
@@ -538,54 +557,4 @@ function render() {
     return;
   }
 
-  let html = `<div class="section-title"><h3 style="color:${titleColor}">${catTitle[currentTab]||''}</h3><span class="count">${filtered.length}</span></div><div class="cards-grid">`;
-
-  filtered.forEach(p => {
-    const label = getCatLabel(p);
-    const btnColor = p.color;
-    const horario = p.horario || '<span class=\'pending\'>Próximamente</span>';
-    const telefono = p.telefono
-      ? `<a href="https://wa.me/57${p.telefono.replace(/\D/g,'')}" onclick="event.stopPropagation()">${p.telefono}</a>`
-      : '<span class=\'pending\'>Próximamente</span>';
-    const precioRow = p.cat === 'hoteles' ? `<div class="card-extra-row"><span class="label">💰 Precio:</span> ${p.precio || '<span class=\'pending\'>Próximamente</span>'}</div>` : '';
-
-    html += `<div class="place-card" onclick="window.open('https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}','_blank')">
-      <div class="card-header">
-        <div class="card-icon ${p.color}">${p.icon}</div>
-        <div class="card-info">
-          <div class="card-name">${p.name}</div>
-          <span class="card-category cat-${p.color}">${label}</span>
-        </div>
-      </div>
-      ${p.desc ? `<div class="card-desc">${p.desc}</div>` : ''}
-      <div class="card-extra">
-        <div class="card-extra-row"><span class="label">🕐 Horario:</span> ${horario}</div>
-        <div class="card-extra-row"><span class="label">📱 Contacto:</span> ${telefono}</div>
-        ${precioRow}
-      </div>
-      <div class="card-footer">
-        <a class="map-btn ${btnColor}" href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}" target="_blank" onclick="event.stopPropagation()">Ver en mapa ↗</a>
-      </div>
-    </div>`;
-  });
-
-  html += '</div>';
-  container.innerHTML = html;
-}
-
-render();
-
-function togglePlan() {
-  const detalle = document.getElementById('plan-detalle');
-  const txt = document.getElementById('plan-toggle-txt');
-  if (detalle.style.display === 'none') {
-    detalle.style.display = 'block';
-    txt.innerHTML = '▲ Cerrar itinerario';
-  } else {
-    detalle.style.display = 'none';
-    txt.innerHTML = '▼ Ver itinerario';
-  }
-}
-</script>
-</body>
-</html>
+  let html = `<div class="section-title"><h3 style="color:${titleColor}">${catTitle[currentTab]||''}</h3><span class="count">${f
