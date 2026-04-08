@@ -228,6 +228,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 
 <script>
 const places = [
+
   // HOTELES
   { id:1, name:'Hotel Servicentro El Saman', cat:'hoteles', subcat:'', icon:'🏨', color:'dorado', desc:'Hotel y restaurante en la vía principal. Ideal para viajeros de paso por Vijes.', lat:3.6954871, lng:-76.4372409 },
   { id:2, name:'La Casa Hostal', cat:'hoteles', subcat:'', icon:'🏠', color:'dorado', desc:'Hostal acogedor en el centro de Vijes.', lat:3.6986057, lng:-76.4393318 },
@@ -237,7 +238,7 @@ const places = [
   { id:6, name:'Finca de Alquiler Mirador Los Ángeles', cat:'hoteles', subcat:'', icon:'🌄', color:'verde', desc:'Mirador con alojamiento rural, vistas panorámicas espectaculares.', lat:3.7173751, lng:-76.483035 },
   { id:7, name:'Cabañas Finca Villa Soledad', cat:'hoteles', subcat:'', icon:'🏕️', color:'verde', desc:'Cabañas de alquiler en finca, ambiente tranquilo y natural.', lat:3.7086035, lng:-76.4771037 },
 
-  // RESTAURANTES - TRADICIONAL
+  // RESTAURANTES
   { id:8, name:'Restaurante Mi Valle Del Cauca', cat:'restaurantes', subcat:'tradicional', icon:'🍛', color:'morado', desc:'Enfoque en cocina regional vallecaucana. Ideal para almuerzo tradicional.', lat:3.6992559, lng:-76.4435849 },
   { id:9, name:'Restaurante Rinconcito Vijeño', cat:'restaurantes', subcat:'tradicional', icon:'🥘', color:'morado', desc:'Restaurante local con identidad municipal y comida casera.', lat:3.7014714, lng:-76.4424558 },
   { id:10, name:'Sazón Jiménez', cat:'restaurantes', subcat:'tradicional', icon:'🍲', color:'morado', desc:'Cocina familiar con preparaciones tradicionales.', lat:3.7024965, lng:-76.4425586 },
@@ -248,9 +249,6 @@ const places = [
   { id:15, name:'Restaurante Toskana', cat:'restaurantes', subcat:'tradicional', icon:'🍽️', color:'morado', desc:'Restaurante en el centro del municipio.', lat:3.7012557, lng:-76.4423132 },
   { id:16, name:'Asadero y Restaurante El Paraíso', cat:'restaurantes', subcat:'parrilla', icon:'🥩', color:'verde', desc:'Asadero y restaurante en zona central.', lat:3.7007133, lng:-76.4423575 },
   { id:17, name:'Casa Wber', cat:'restaurantes', subcat:'tradicional', icon:'🏡', color:'morado', desc:'Restaurante y alojamiento en zona rural de Vijes.', lat:3.7135841, lng:-76.4729953 },
-
-  // RESTAURANTES - PARRILLA
-  { id:18, name:"Britto's Pizza, Pasta y Parrilla Bar", cat:'restaurantes', subcat:'parrilla', icon:'🥩', color:'verde', desc:'Parrilla combinada con pizza y pasta. Lo mejor de dos mundos.', lat:3.7006203, lng:-76.4423115 },
   { id:19, name:'Mirador K-luz Restaurante Bar', cat:'restaurantes', subcat:'parrilla', icon:'🌅', color:'verde', desc:'Restaurante bar con vista panorámica y ambiente social.', lat:3.6920688, lng:-76.4417792 },
   { id:20, name:'RESTAURANTE MACONDO VIJES Gastro Bar', cat:'restaurantes', subcat:'parrilla', icon:'🍷', color:'verde', desc:'Propuesta contemporánea tipo gastrobar.', lat:3.7004294, lng:-76.4411106 },
   { id:21, name:'Restaurante Rancho Los Alpes', cat:'restaurantes', subcat:'parrilla', icon:'🥩', color:'verde', desc:'Restaurante tradicional con oferta variada.', lat:3.6920648, lng:-76.4427658 },
@@ -258,8 +256,6 @@ const places = [
   { id:23, name:'Restaurante Pollo Brosvi', cat:'restaurantes', subcat:'parrilla', icon:'🍗', color:'verde', desc:'Especialidad en pollo asado y parrilla.', lat:3.7005204, lng:-76.4415517 },
   { id:24, name:'Restaurante Latorre Típico y Parrilla', cat:'restaurantes', subcat:'parrilla', icon:'🥩', color:'verde', desc:'Comida típica y parrilla en las afueras de Vijes.', lat:3.6906826, lng:-76.4377384 },
   { id:25, name:'Restaurante Asados Lindelia', cat:'restaurantes', subcat:'parrilla', icon:'🔥', color:'verde', desc:'Asados y parrilla de tradición vijeña.', lat:3.6972022, lng:-76.4423642 },
-
-  // RESTAURANTES - PIZZA / INTERNACIONAL
   { id:26, name:'Pizzería y Restaurante Donde El Cubano', cat:'restaurantes', subcat:'pizza', icon:'🍕', color:'morado', desc:'Pizza y platos variados con toque cubano.', lat:3.6983496, lng:-76.439272 },
   { id:27, name:'Restaurante de Comida China Shop Suey', cat:'restaurantes', subcat:'pizza', icon:'🥡', color:'morado', desc:'Cocina china auténtica en Vijes.', lat:3.6996998, lng:-76.4451012 },
   { id:28, name:'Restaurante BTM', cat:'restaurantes', subcat:'pizza', icon:'🥘', color:'morado', desc:'Cocina española en Vijes.', lat:3.7013149, lng:-76.4401346 },
@@ -279,7 +275,7 @@ const places = [
   { id:40, name:'Venta de Longaniza y Cortado', cat:'dulces', subcat:'', icon:'🌭', color:'dorado', desc:'Longaniza y cortado artesanal de Vijes.', lat:3.7000363, lng:-76.4403578 },
   { id:41, name:'Venta de Longaniza', cat:'dulces', subcat:'', icon:'🌭', color:'dorado', desc:'Longaniza tradicional de Vijes.', lat:3.698385, lng:-76.4407965 },
 
-  // CAFETERÍAS / PANADERÍAS
+  // CAFETERÍAS
   { id:42, name:'Café Museo Forjar', cat:'cafeterias', subcat:'', icon:'☕', color:'dorado', desc:'Café, antojos vallunos y espacio cultural. Un lugar único en Vijes.', lat:3.700957, lng:-76.4433061 },
   { id:43, name:'Panadería La Principal', cat:'cafeterias', subcat:'', icon:'🥐', color:'dorado', desc:'Productos horneados frescos del día.', lat:3.6999976, lng:-76.4433173 },
   { id:44, name:'Panadería Pan Tojarse', cat:'cafeterias', subcat:'', icon:'🍞', color:'dorado', desc:'Panadería artesanal en Vijes.', lat:3.6984074, lng:-76.4411793 },
@@ -298,19 +294,7 @@ const places = [
   { id:61, name:'Discoteca El Rey', cat:'bailaderos', subcat:'', icon:'👑', color:'morado', desc:'Discoteca en Vijes para bailar y disfrutar.', lat:3.7016226, lng:-76.4426516 },
   { id:62, name:'Licorera La Mina Rancho y Licores', cat:'bailaderos', subcat:'', icon:'🍹', color:'morado', desc:'Rancho, licores y rumba en Vijes.', lat:3.7000694, lng:-76.4424918 },
 
-  // TIENDA ARTESANAL
-  
-  // MUSEO
-  { id:64, name:'Museo Santa Bárbara', cat:'museo', subcat:'', icon:'🏛️', color:'morado', desc:'Patrimonio cultural e histórico de Vijes.', lat:3.700805, lng:-76.442994 },
-
-  // GUÍAS LOCALES
-  { id:65, name:'Luis Caicedo', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', telefono:'3170960178', lat:3.7006, lng:-76.4425 },
-  { id:66, name:'Jaslehidy Montoya', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', telefono:'3188578088', lat:3.7006, lng:-76.4425 },
-  { id:67, name:'July García', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', telefono:'3154976568', lat:3.7006, lng:-76.4425 },
-  { id:68, name:'Viviana Solano', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', telefono:'3214440563', lat:3.7006, lng:-76.4425 },
-  { id:69, name:'Danny Ruiz', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', telefono:'3122364325', lat:3.7006, lng:-76.4425 },
-
-  // MUSEO
+  // MUSEOS
   { id:70, name:'Museo Comunitario Horno Artesanal El Diamante', cat:'museo', subcat:'', icon:'🏺', color:'dorado', desc:'Museo comunitario con horno artesanal tradicional de Vijes.', lat:3.707429, lng:-76.453182, horario:'', telefono:'', precio:'' },
 
   // ARTESANÍAS
