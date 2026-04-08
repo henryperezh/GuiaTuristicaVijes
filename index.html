@@ -4,267 +4,160 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vijes Turismo</title>
+<meta property="og:title" content="Vijes Turismo">
+<meta property="og:description" content="Guía turística de Vijes, Valle del Cauca. Hoteles, restaurantes, bailaderos, museos y más.">
+<meta property="og:site_name" content="Vijes Turismo">
+<meta name="description" content="Guía turística de Vijes, Valle del Cauca. Hoteles, restaurantes, bailaderos, museos y más.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --morado: #9B5FC0;
-    --verde: #6DBF2E;
-    --dorado: #C98A1A;
-    --morado-dark: #7a46a0;
-    --verde-dark: #52a018;
-    --dorado-dark: #a06e12;
-    --bg: #f8f5ff;
-    --white: #ffffff;
-    --text: #2a1a3e;
-    --text-light: #6b5a80;
-    --card-shadow: 0 4px 20px rgba(155,95,192,0.13);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+:root {
+  --morado: #9B5FC0;
+  --verde: #6DBF2E;
+  --dorado: #C98A1A;
+  --morado-dark: #7a46a0;
+  --verde-dark: #52a018;
+  --dorado-dark: #a06e12;
+  --bg: #f8f5ff;
+  --white: #ffffff;
+  --text: #2a1a3e;
+  --text-light: #6b5a80;
+  --card-shadow: 0 4px 20px rgba(155,95,192,0.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 
-  /* HEADER */
-  .header {
-    background: linear-gradient(135deg, #2a1a3e 0%, #4a2870 60%, #6a3590 100%);
-    padding: 0;
-    position: sticky; top: 0; z-index: 100;
-    box-shadow: 0 3px 20px rgba(0,0,0,0.3);
-  }
-  .header-inner {
-    display: flex; align-items: center; gap: 14px;
-    padding: 12px 20px;
-  }
-  .logo-wrap {
-    background: white;
-    border-radius: 12px;
-    padding: 6px 10px;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  }
-  .logo-svg { width: 52px; height: 52px; }
-  .header-text h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem; color: var(--dorado);
-    letter-spacing: 2px; line-height: 1;
-  }
-  .header-text p { color: rgba(255,255,255,0.75); font-size: 0.78rem; font-weight: 600; letter-spacing: 1px; }
+/* HEADER */
+.header{background:linear-gradient(135deg,#2a1a3e 0%,#4a2870 60%,#6a3590 100%);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 3px 20px rgba(0,0,0,0.3)}
+.header-inner{display:flex;align-items:center;gap:14px;padding:12px 20px}
+.logo-wrap{background:white;border-radius:12px;padding:6px 10px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,0.2)}
+.header-text h1{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--dorado);letter-spacing:2px;line-height:1}
 
-  /* HERO BANNER */
-  .hero {
-    background: linear-gradient(160deg, var(--morado) 0%, var(--morado-dark) 100%);
-    padding: 28px 20px 22px;
-    text-align: center;
-    position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; top: -50px; right: -50px;
-    width: 200px; height: 200px;
-    background: rgba(109,191,46,0.15); border-radius: 50%;
-  }
-  .hero::after {
-    content: ''; position: absolute; bottom: -40px; left: -30px;
-    width: 160px; height: 160px;
-    background: rgba(201,138,26,0.12); border-radius: 50%;
-  }
-  .hero h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.7rem; color: white; letter-spacing: 2px;
-    margin-bottom: 6px;
-  }
-  .hero p { color: rgba(255,255,255,0.85); font-size: 0.88rem; margin-bottom: 16px; }
-  .search-box {
-    display: flex; align-items: center;
-    background: white; border-radius: 30px;
-    padding: 10px 18px; gap: 10px;
-    max-width: 480px; margin: 0 auto;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  }
-  .search-box input {
-    border: none; outline: none; flex: 1;
-    font-family: 'Nunito', sans-serif; font-size: 0.92rem; color: var(--text);
-  }
-  .search-box input::placeholder { color: #aaa; }
-  .search-icon { color: var(--morado); font-size: 1.1rem; }
+/* HERO */
+.hero{background:linear-gradient(160deg,var(--morado) 0%,var(--morado-dark) 100%);padding:28px 20px 22px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:rgba(109,191,46,0.15);border-radius:50%}
+.hero h2{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;color:white;letter-spacing:2px;margin-bottom:6px}
+.hero p{color:rgba(255,255,255,0.85);font-size:0.88rem;margin-bottom:16px}
+.search-box{display:flex;align-items:center;background:white;border-radius:30px;padding:10px 18px;gap:10px;max-width:480px;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,0.15)}
+.search-box input{border:none;outline:none;flex:1;font-family:'Nunito',sans-serif;font-size:0.92rem;color:var(--text)}
+.search-box input::placeholder{color:#aaa}
 
-  /* CATEGORY TABS */
-  .tabs-wrap {
-    background: white;
-    border-bottom: 2px solid #f0e8fa;
-    padding: 0 12px;
-    display: flex; gap: 4px;
-    overflow-x: auto; scrollbar-width: none;
-  }
-  .tabs-wrap::-webkit-scrollbar { display: none; }
-  .tab {
-    white-space: nowrap;
-    padding: 14px 16px;
-    font-weight: 700; font-size: 0.82rem;
-    color: var(--text-light); cursor: pointer;
-    border-bottom: 3px solid transparent;
-    transition: all 0.2s; letter-spacing: 0.3px;
-    background: none; border-top: none; border-left: none; border-right: none;
-    font-family: 'Nunito', sans-serif;
-    display: flex; align-items: center; gap: 6px;
-  }
-  .tab:hover { color: var(--morado); }
-  .tab.active { color: var(--morado); border-bottom-color: var(--morado); }
-  .tab.active.verde { color: var(--verde-dark); border-bottom-color: var(--verde); }
-  .tab.active.dorado { color: var(--dorado-dark); border-bottom-color: var(--dorado); }
+/* BIENVENIDA */
+.bienvenida{background:white;padding:20px 20px 0;border-bottom:2px solid #f0e8fa}
+.bienvenida-inner{max-width:700px;margin:0 auto}
+.bienvenida h3{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--morado);letter-spacing:1.5px;margin-bottom:8px}
+.bienvenida p{font-size:0.88rem;color:var(--text-light);line-height:1.7;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{padding:5px 12px;border-radius:20px;font-size:0.75rem;font-weight:700;background:#f3e8ff;color:var(--morado)}
+.chip.verde{background:#eafad4;color:var(--verde-dark)}
+.chip.dorado{background:#fff3d4;color:var(--dorado-dark)}
 
-  /* SUBCATEGORY FILTERS */
-  .subfilters {
-    display: flex; gap: 8px;
-    padding: 14px 16px;
-    overflow-x: auto; scrollbar-width: none;
-    background: var(--bg);
-  }
-  .subfilters::-webkit-scrollbar { display: none; }
-  .subfilter {
-    white-space: nowrap;
-    padding: 6px 14px; border-radius: 20px;
-    font-size: 0.78rem; font-weight: 700;
-    cursor: pointer; transition: all 0.2s;
-    border: 2px solid transparent;
-    font-family: 'Nunito', sans-serif;
-  }
-  .subfilter.morado { background: #f3e8ff; color: var(--morado); border-color: #d4b0f0; }
-  .subfilter.morado.active, .subfilter.morado:hover { background: var(--morado); color: white; border-color: var(--morado); }
-  .subfilter.verde { background: #eafad4; color: var(--verde-dark); border-color: #b8e87a; }
-  .subfilter.verde.active, .subfilter.verde:hover { background: var(--verde); color: white; border-color: var(--verde); }
-  .subfilter.dorado { background: #fff3d4; color: var(--dorado-dark); border-color: #f0d080; }
-  .subfilter.dorado.active, .subfilter.dorado:hover { background: var(--dorado); color: white; border-color: var(--dorado); }
+/* PLAN DIA */
+.plan-dia{background:linear-gradient(135deg,#2a1a3e,#4a2870);padding:20px;margin:0}
+.plan-dia h3{font-family:'Bebas Neue',sans-serif;color:var(--dorado);font-size:1.3rem;letter-spacing:1.5px;margin-bottom:14px;text-align:center}
+.plan-steps{display:flex;flex-direction:column;gap:10px;max-width:600px;margin:0 auto}
+.plan-step{display:flex;gap:12px;align-items:flex-start}
+.plan-hora{font-family:'Bebas Neue',sans-serif;color:var(--dorado);font-size:1rem;min-width:55px;letter-spacing:1px}
+.plan-texto{color:rgba(255,255,255,0.9);font-size:0.83rem;line-height:1.5}
+.plan-texto strong{color:var(--verde);display:block;font-size:0.88rem}
 
-  /* SECTION TITLE */
-  .section-title {
-    padding: 16px 18px 8px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-title h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.25rem; letter-spacing: 1.5px;
-  }
-  .section-title .count {
-    background: var(--morado); color: white;
-    border-radius: 20px; padding: 2px 10px;
-    font-size: 0.72rem; font-weight: 800;
-  }
+/* EXPERIENCIAS */
+.experiencias{padding:16px;background:var(--bg)}
+.exp-title{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:var(--morado);letter-spacing:1.5px;padding:0 4px 10px}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.exp-card{background:white;border-radius:16px;box-shadow:var(--card-shadow);border:1.5px solid #f0e8fa;overflow:hidden}
+.exp-banner{height:70px;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.exp-body{padding:14px}
+.exp-body h4{font-weight:800;font-size:0.95rem;color:var(--text);margin-bottom:4px}
+.exp-body p{font-size:0.8rem;color:var(--text-light);line-height:1.5;margin-bottom:10px}
+.exp-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.exp-tag{font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:10px;background:#f3e8ff;color:var(--morado)}
+.exp-tag.verde{background:#eafad4;color:var(--verde-dark)}
+.exp-tag.dorado{background:#fff3d4;color:var(--dorado-dark)}
+.exp-pending{font-size:0.75rem;font-style:italic;color:#bbb;margin-bottom:8px}
+.btn-exp{display:block;text-align:center;background:var(--morado);color:white;border-radius:20px;padding:7px 16px;font-size:0.78rem;font-weight:700;text-decoration:none;font-family:'Nunito',sans-serif}
+.btn-exp.verde{background:var(--verde)}
+.btn-exp.dorado{background:var(--dorado)}
 
-  /* CARDS GRID */
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
-    padding: 8px 16px 24px;
-  }
+/* STATS */
+.stats-bar{display:flex;gap:0;background:linear-gradient(90deg,var(--morado) 0%,var(--morado-dark) 100%);padding:14px 20px;justify-content:space-around}
+.stat{text-align:center}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--dorado);line-height:1}
+.stat-label{font-size:0.68rem;color:rgba(255,255,255,0.8);font-weight:700;letter-spacing:0.5px;text-transform:uppercase}
 
-  /* PLACE CARD */
-  .place-card {
-    background: white; border-radius: 16px;
-    box-shadow: var(--card-shadow);
-    overflow: hidden; cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    border: 1.5px solid #f0e8fa;
-    display: flex; flex-direction: column;
-  }
-  .card-extra { flex: 1; }
-  .place-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(155,95,192,0.22);
-  }
-  .card-header {
-    padding: 16px 16px 12px;
-    display: flex; align-items: flex-start; gap: 12px;
-  }
-  .card-icon {
-    width: 46px; height: 46px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.4rem; flex-shrink: 0;
-  }
-  .card-icon.morado { background: #f3e8ff; }
-  .card-icon.verde { background: #eafad4; }
-  .card-icon.dorado { background: #fff3d4; }
-  .card-info { flex: 1; min-width: 0; }
-  .card-name {
-    font-weight: 800; font-size: 0.92rem; color: var(--text);
-    line-height: 1.3; margin-bottom: 4px;
-  }
-  .card-category {
-    font-size: 0.72rem; font-weight: 700;
-    padding: 2px 8px; border-radius: 10px;
-    display: inline-block;
-  }
-  .cat-morado { background: #f3e8ff; color: var(--morado); }
-  .cat-verde { background: #eafad4; color: var(--verde-dark); }
-  .cat-dorado { background: #fff3d4; color: var(--dorado-dark); }
-  .card-desc {
-    padding: 0 16px 14px;
-    font-size: 0.82rem; color: var(--text-light);
-    line-height: 1.5;
-  }
-  .card-footer {
-    padding: 10px 16px;
-    border-top: 1.5px solid #f8f0ff;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .map-btn {
-    background: var(--morado); color: white;
-    border: none; border-radius: 20px;
-    padding: 6px 14px; font-size: 0.75rem; font-weight: 700;
-    cursor: pointer; font-family: 'Nunito', sans-serif;
-    transition: background 0.2s;
-    display: flex; align-items: center; gap: 5px;
-    text-decoration: none;
-  }
-  .map-btn:hover { background: var(--morado-dark); }
-  .map-btn.verde { background: var(--verde); }
-  .map-btn.verde:hover { background: var(--verde-dark); }
-  .map-btn.dorado { background: var(--dorado); }
-  .map-btn.dorado:hover { background: var(--dorado-dark); }
+/* TABS */
+.tabs-wrap{background:white;border-bottom:2px solid #f0e8fa;padding:0 12px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs-wrap::-webkit-scrollbar{display:none}
+.tab{white-space:nowrap;padding:14px 16px;font-weight:700;font-size:0.82rem;color:var(--text-light);cursor:pointer;border-bottom:3px solid transparent;transition:all 0.2s;letter-spacing:0.3px;background:none;border-top:none;border-left:none;border-right:none;font-family:'Nunito',sans-serif;display:flex;align-items:center;gap:6px}
+.tab:hover{color:var(--morado)}
+.tab.active{color:var(--morado);border-bottom-color:var(--morado)}
+.tab.active.verde{color:var(--verde-dark);border-bottom-color:var(--verde)}
+.tab.active.dorado{color:var(--dorado-dark);border-bottom-color:var(--dorado)}
 
-  /* STATS BAR */
-  .stats-bar {
-    display: flex; gap: 0;
-    background: linear-gradient(90deg, var(--morado) 0%, var(--morado-dark) 100%);
-    padding: 14px 20px;
-    justify-content: space-around;
-  }
-  .stat { text-align: center; }
-  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--dorado); line-height: 1; }
-  .stat-label { font-size: 0.68rem; color: rgba(255,255,255,0.8); font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+/* SUBFILTERS */
+.subfilters{display:flex;gap:8px;padding:14px 16px;overflow-x:auto;scrollbar-width:none;background:var(--bg)}
+.subfilters::-webkit-scrollbar{display:none}
+.subfilter{white-space:nowrap;padding:6px 14px;border-radius:20px;font-size:0.78rem;font-weight:700;cursor:pointer;transition:all 0.2s;border:2px solid transparent;font-family:'Nunito',sans-serif}
+.subfilter.morado{background:#f3e8ff;color:var(--morado);border-color:#d4b0f0}
+.subfilter.morado.active,.subfilter.morado:hover{background:var(--morado);color:white;border-color:var(--morado)}
+.subfilter.verde{background:#eafad4;color:var(--verde-dark);border-color:#b8e87a}
+.subfilter.verde.active,.subfilter.verde:hover{background:var(--verde);color:white;border-color:var(--verde)}
 
-  /* EMPTY STATE */
-  .empty { text-align: center; padding: 40px 20px; color: var(--text-light); }
-  .empty-icon { font-size: 3rem; margin-bottom: 12px; }
+/* SECTION TITLE */
+.section-title{padding:16px 18px 8px;display:flex;align-items:center;gap:10px}
+.section-title h3{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:1.5px}
+.section-title .count{background:var(--morado);color:white;border-radius:20px;padding:2px 10px;font-size:0.72rem;font-weight:800}
 
-  /* FOOTER */
-  .footer {
-    background: #2a1a3e; color: rgba(255,255,255,0.6);
-    text-align: center; padding: 20px;
-    font-size: 0.78rem;
-  }
-  .footer span { color: var(--dorado); font-weight: 700; }
+/* CARDS */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;padding:8px 16px 24px}
+.place-card{background:white;border-radius:16px;box-shadow:var(--card-shadow);overflow:hidden;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:1.5px solid #f0e8fa;display:flex;flex-direction:column}
+.place-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(155,95,192,0.22)}
+.card-header{padding:16px 16px 12px;display:flex;align-items:flex-start;gap:12px}
+.card-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.card-icon.morado{background:#f3e8ff}
+.card-icon.verde{background:#eafad4}
+.card-icon.dorado{background:#fff3d4}
+.card-info{flex:1;min-width:0}
+.card-name{font-weight:800;font-size:0.92rem;color:var(--text);line-height:1.3;margin-bottom:4px}
+.card-category{font-size:0.72rem;font-weight:700;padding:2px 8px;border-radius:10px;display:inline-block}
+.cat-morado{background:#f3e8ff;color:var(--morado)}
+.cat-verde{background:#eafad4;color:var(--verde-dark)}
+.cat-dorado{background:#fff3d4;color:var(--dorado-dark)}
+.card-desc{padding:0 16px 14px;font-size:0.82rem;color:var(--text-light);line-height:1.5}
+.card-extra{padding:0 16px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card-extra-row{display:flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--text-light)}
+.card-extra-row span.label{font-weight:700;color:var(--text);min-width:60px}
+.card-extra-row span.pending{font-style:italic;color:#bbb}
+.card-extra-row a{color:var(--morado);text-decoration:none;font-weight:700}
+.card-footer{padding:10px 16px;border-top:1.5px solid #f8f0ff;display:flex;align-items:center;justify-content:center}
+.map-btn{background:var(--morado);color:white;border:none;border-radius:20px;padding:8px 20px;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:background 0.2s;display:inline-flex;align-items:center;gap:5px;text-decoration:none}
+.map-btn:hover{background:var(--morado-dark)}
+.map-btn.verde{background:var(--verde)}
+.map-btn.verde:hover{background:var(--verde-dark)}
+.map-btn.dorado{background:var(--dorado)}
+.map-btn.dorado:hover{background:var(--dorado-dark)}
+.wa-btn{background:#25D366;color:white;border:none;border-radius:20px;padding:8px 20px;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;display:inline-flex;align-items:center;gap:5px;text-decoration:none;margin-top:4px}
+.wa-btn:hover{background:#1da851}
 
-  .card-extra {
-    padding: 0 16px 14px;
-    display: flex; flex-direction: column; gap: 4px;
-  }
-  .card-extra-row {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 0.78rem; color: var(--text-light);
-  }
-  .card-extra-row span.label {
-    font-weight: 700; color: var(--text);
-    min-width: 60px;
-  }
-  .card-extra-row span.pending {
-    font-style: italic; color: #bbb;
-  }
-  .card-extra-row a {
-    color: var(--morado); text-decoration: none; font-weight: 700;
-  }
-  @media (max-width: 480px) {
-    .cards-grid { grid-template-columns: 1fr; }
-    .header-text h1 { font-size: 1.6rem; }
-  }
+/* GUIAS CARD */
+.guia-card{background:white;border-radius:16px;box-shadow:var(--card-shadow);border:1.5px solid #f0e8fa;overflow:hidden;display:flex;flex-direction:column}
+.guia-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--morado),var(--verde));display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.guia-header{padding:16px;display:flex;gap:12px;align-items:center}
+.guia-body{padding:0 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.guia-row{font-size:0.8rem;color:var(--text-light);display:flex;gap:6px}
+.guia-row strong{color:var(--text);min-width:70px}
+
+/* EMPTY */
+.empty{text-align:center;padding:40px 20px;color:var(--text-light)}
+
+/* FOOTER */
+.footer{background:#2a1a3e;color:rgba(255,255,255,0.6);text-align:center;padding:20px;font-size:0.78rem}
+.footer span{color:var(--dorado);font-weight:700}
+
+@media(max-width:600px){
+  .cards-grid{grid-template-columns:1fr}
+  .exp-grid{grid-template-columns:1fr}
+  .header-text h1{font-size:1.6rem}
+}
 </style>
 </head>
 <body>
@@ -284,42 +177,43 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h2>¿Qué estás buscando hoy?</h2>
-  <p>Hoteles, restaurantes y sabores únicos de Vijes</p>
+  <h2>Explora, prueba y vive Vijes</h2>
+  <p>El pueblo blanco del Valle te espera con su gastronomía, cultura y naturaleza</p>
   <div class="search-box">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="Buscar restaurante, hotel, dulces..." oninput="filterCards()">
+    <span style="font-size:16px">🔍</span>
+    <input type="text" id="searchInput" placeholder="Buscar restaurante, hotel, guía..." oninput="filterCards()">
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats-bar">
-  <div class="stat"><div class="stat-num">6</div><div class="stat-label">Hoteles</div></div>
+  <div class="stat"><div class="stat-num">7</div><div class="stat-label">Hoteles</div></div>
   <div class="stat"><div class="stat-num">35+</div><div class="stat-label">Restaurantes</div></div>
-  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Bailaderos</div></div>
-  <div class="stat"><div class="stat-num">5</div><div class="stat-label">Guías locales</div></div>
+  <div class="stat"><div class="stat-num">5</div><div class="stat-label">Guías</div></div>
+  <div class="stat"><div class="stat-num">2</div><div class="stat-label">Museos</div></div>
 </div>
 
 <!-- TABS -->
 <div class="tabs-wrap">
-  <button class="tab active" onclick="switchTab('hoteles', this)">🏨 Hoteles</button>
-  <button class="tab verde" onclick="switchTab('restaurantes', this)">🍽️ Restaurantes</button>
-  <button class="tab dorado" onclick="switchTab('dulces', this)">🍬 Dulces típicos</button>
-  <button class="tab" onclick="switchTab('cafeterias', this)">☕ Cafeterías</button>
-  <button class="tab" onclick="switchTab('heladerias', this)">🍦 Heladerías</button>
-  <button class="tab" onclick="switchTab('rapidas', this)">🍔 Comidas rápidas</button>
-  <button class="tab" onclick="switchTab('bailaderos', this)">🎶 Bailaderos</button>
-  <button class="tab" onclick="switchTab('artesanias', this)">🧵 Artesanías</button>
-  <button class="tab" onclick="switchTab('museo', this)">🏛️ Museo</button>
-  <button class="tab" onclick="switchTab('guias', this)">🧭 Guías</button>
+  <button class="tab active" onclick="switchTab('descubre',this)">🌟 Descubre Vijes</button>
+  <button class="tab" onclick="switchTab('hoteles',this)">🏨 Hoteles</button>
+  <button class="tab verde" onclick="switchTab('restaurantes',this)">🍽️ Restaurantes</button>
+  <button class="tab dorado" onclick="switchTab('dulces',this)">🍬 Dulces típicos</button>
+  <button class="tab" onclick="switchTab('cafeterias',this)">☕ Cafeterías</button>
+  <button class="tab" onclick="switchTab('heladerias',this)">🍦 Heladerías</button>
+  <button class="tab" onclick="switchTab('rapidas',this)">🍔 Comidas rápidas</button>
+  <button class="tab" onclick="switchTab('bailaderos',this)">🎶 Bailaderos</button>
+  <button class="tab" onclick="switchTab('museo',this)">🏛️ Museos</button>
+  <button class="tab" onclick="switchTab('artesanias',this)">🧵 Artesanías</button>
+  <button class="tab" onclick="switchTab('guias',this)">🧭 Guías</button>
 </div>
 
-<!-- SUBFILTERS for restaurants -->
-<div class="subfilters" id="subfilters" style="display:none;">
-  <span class="subfilter morado active" onclick="subFilter('todos', this)">Todos</span>
-  <span class="subfilter morado" onclick="subFilter('tradicional', this)">🫕 Tradicional</span>
-  <span class="subfilter verde" onclick="subFilter('parrilla', this)">🥩 Parrilla</span>
-  <span class="subfilter verde" onclick="subFilter('pizza', this)">🍕 Pizza / Internacional</span>
+<!-- SUBFILTERS -->
+<div class="subfilters" id="subfilters" style="display:none">
+  <span class="subfilter morado active" onclick="subFilter('todos',this)">Todos</span>
+  <span class="subfilter morado" onclick="subFilter('tradicional',this)">🫕 Tradicional</span>
+  <span class="subfilter verde" onclick="subFilter('parrilla',this)">🥩 Parrilla</span>
+  <span class="subfilter verde" onclick="subFilter('pizza',this)">🍕 Pizza / Internacional</span>
 </div>
 
 <!-- CONTENT -->
@@ -328,7 +222,7 @@
 <!-- FOOTER -->
 <footer class="footer">
   <p>Hecho con ❤️ para los turistas de <span>Vijes, Valle del Cauca</span></p>
-  <p style="margin-top:6px;">Datos: Google Maps Vijes · 2024</p>
+  <p style="margin-top:6px;font-size:0.72rem">Municipio a 31 km de Cali · Carretera Panamericana</p>
 </footer>
 
 <script>
@@ -437,9 +331,10 @@ const places = [
   { id:57, name:'Sabores La Esquina', cat:'rapidas', subcat:'', icon:'🌯', color:'morado', desc:'Comidas rápidas y restaurante en La Esquina de Vijes.', lat:3.700485, lng:-76.4414592 },
   { id:58, name:'Burger House Vijes', cat:'rapidas', subcat:'', icon:'🍔', color:'morado', desc:'Hamburguesas artesanales al estilo Vijes.', lat:3.7007508, lng:-76.4422361 },
   { id:59, name:'Ney Burger', cat:'rapidas', subcat:'', icon:'🍔', color:'morado', desc:'Hamburguesas en Vijes.', lat:3.6965408, lng:-76.4416631 },
+
 ];
 
-let currentTab = 'hoteles';
+let currentTab = 'descubre';
 let currentSub = 'todos';
 
 function switchTab(tab, el) {
@@ -474,7 +369,7 @@ function getFiltered() {
   return places.filter(p => {
     const matchTab = currentTab === 'todos' || p.cat === currentTab;
     const matchSub = currentSub === 'todos' || p.subcat === currentSub;
-    const matchQ = !q || p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
+    const matchQ = !q || p.name.toLowerCase().includes(q) || (p.desc||'').toLowerCase().includes(q);
     return matchTab && matchSub && matchQ;
   });
 }
@@ -482,67 +377,180 @@ function getFiltered() {
 function getCatLabel(p) {
   const labels = {
     hoteles: 'Hotel / Hospedaje',
-    restaurantes: {
-      tradicional: 'Comida Tradicional',
-      parrilla: 'Parrilla / Asados',
-      pizza: 'Pizza / Internacional',
-      '': 'Restaurante'
-    },
+    restaurantes: { tradicional:'Comida Tradicional', parrilla:'Parrilla / Asados', pizza:'Pizza / Internacional', '':'Restaurante' },
     dulces: 'Dulces Típicos',
     cafeterias: 'Cafetería / Panadería',
     heladerias: 'Heladería',
-    rapidas: 'Comidas Rápidas'
+    rapidas: 'Comidas Rápidas',
+    bailaderos: 'Bailadero / Bar',
+    museo: 'Museo y Cultura',
+    artesanias: 'Tienda Artesanal',
+    guias: 'Guía Local'
   };
   if (p.cat === 'restaurantes') return labels.restaurantes[p.subcat] || 'Restaurante';
-  if (p.cat === 'guias') return 'Guía Local';
-  if (p.cat === 'museo') return 'Museo';
-  if (p.cat === 'artesanias') return 'Artesanías';
   return labels[p.cat] || p.cat;
 }
 
-function openMaps(lat, lng, name) {
-  window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}&query_place_id=${encodeURIComponent(name)}`, '_blank');
-}
-
 function render() {
-  const filtered = getFiltered();
   const container = document.getElementById('app-content');
 
+  if (currentTab === 'descubre') {
+    container.innerHTML = `
+    <div class="descubre-wrap">
+      <div class="bienvenida-blk">
+        <h3>¿Por qué visitar Vijes?</h3>
+        <p>A solo 31 km de Cali, Vijes es el destino perfecto para una escapada. Conocido como <strong>La Ciudad Blanca del Valle</strong>, este municipio te sorprende con sus dulces artesanales, gastronomía típica, senderos naturales y la calidez de su gente.</p>
+        <div class="chips">
+          <span class="chip">🍮 Manjar blanco único</span>
+          <span class="chip verde">🥾 Senderos naturales</span>
+          <span class="chip dorado">🎨 Arte urbano</span>
+          <span class="chip">🏛️ Historia y cultura</span>
+          <span class="chip verde">🌿 A 31 km de Cali</span>
+          <span class="chip dorado">💃 Rumba y bailaderos</span>
+        </div>
+      </div>
+
+      <div class="exp-sec-title">🌟 Experiencias y Plan</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div class="exp-card" style="cursor:pointer" onclick="togglePlan()">
+          <div class="exp-banner" style="background:linear-gradient(135deg,#2a1a3e,#4a2870)">🗓️</div>
+          <div class="exp-body">
+            <h4>Tu día perfecto en Vijes</h4>
+            <p>7 actividades imperdibles de 8am a 7pm. ¡Toca para ver el itinerario!</p>
+            <div class="exp-tags"><span class="exp-tag">⏱️ 1 día</span><span class="exp-tag verde">🌿 7 actividades</span></div>
+            <div id="plan-detalle" style="display:none;margin-top:10px;border-top:1px solid #f0e8fa;padding-top:10px">
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;gap:10px"><span style="font-family:'Bebas Neue',sans-serif;color:#C98A1A;min-width:56px;font-size:0.95rem">8:00 AM</span><div><strong style="font-size:0.82rem;color:#2a1a3e">☕ Desayuno típico</strong><p style="font-size:0.75rem;color:#6b5a80;margin-top:1px">Desayuno vallecaucano en el parque principal.</p></div></div>
+                <div style="border-top:1px dashed #f0e8fa"></div>
+                <div style="display:flex;gap:10px"><span style="font-family:'Bebas Neue',sans-serif;color:#9B5FC0;min-width:56px;font-size:0.95rem">9:30 AM</span><div><strong style="font-size:0.82rem;color:#2a1a3e">🎨 Graffiti Tour</strong><p style="font-size:0.75rem;color:#6b5a80;margin-top:1px">Recorre murales con historia vijeña.</p></div></div>
+                <div style="border-top:1px dashed #f0e8fa"></div>
+                <div style="display:flex;gap:10px"><span style="font-family:'Bebas Neue',sans-serif;color:#c05050;min-width:56px;font-size:0.95rem">11:00 AM</span><div><strong style="font-size:0.82rem;color:#2a1a3e">🏛️ Museos</strong><p style="font-size:0.75rem;color:#6b5a80;margin-top:1px">Museo Santa Bárbara y Horno El Diamante.</p></div></div>
+                <div style="border-top:1px dashed #f0e8fa"></div>
+                <div style="display:flex;gap:10px"><span style="font-family:'Bebas Neue',sans-serif;color:#52a018;min-width:56px;font-size:0.95rem">1:00 PM</span><div><strong style="font-size:0.82rem;color:#2a1a3e">🍛 Almuerzo</strong><p style="font-size:0.75rem;color:#6b5a80;margin-top:1px">Arroz con longaniza vijeña.</p></div></div>
+                <div style="border-top:1px dashed #f0e8fa"></div>
+                <div style="display:flex;gap:10px"><span style="font-family:'Bebas Neue',sans-serif;color:#52a018;min-width:56px;font-size:0.95rem">3:00 PM</span><div><strong style="font-size:0.82rem;color:#2a1a3e">🥾 Charco Oscuro</strong><p style="font-size:0.75rem;color:#6b5a80;margin-top:1px">Caminata ecológica ~2 horas.</p></div></div>
+                <div style="border-top:1px dashed #f0e8fa"></div>
+                <div style="display:flex;gap:10px"><span style="font-family:'Bebas Neue',sans-serif;color:#C98A1A;min-width:56px;font-size:0.95rem">5:30 PM</span><div><strong style="font-size:0.82rem;color:#2a1a3e">🍮 Dulces típicos</strong><p style="font-size:0.75rem;color:#6b5a80;margin-top:1px">Manjar blanco, cortado y longaniza.</p></div></div>
+                <div style="border-top:1px dashed #f0e8fa"></div>
+                <div style="display:flex;gap:10px"><span style="font-family:'Bebas Neue',sans-serif;color:#9B5FC0;min-width:56px;font-size:0.95rem">7:00 PM</span><div><strong style="font-size:0.82rem;color:#2a1a3e">🎶 Noche vijeña</strong><p style="font-size:0.75rem;color:#6b5a80;margin-top:1px">Música y rumba en los bailaderos.</p></div></div>
+              </div>
+            </div>
+            <div style="text-align:center;margin-top:8px;font-size:0.75rem;color:#9B5FC0;font-weight:700" id="plan-toggle-txt">▼ Ver itinerario</div>
+          </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-banner" style="background:linear-gradient(135deg,#eafad4,#b8e87a)">🥾</div>
+          <div class="exp-body">
+            <h4>Caminata a Charco Oscuro</h4>
+            <p>Vive una caminata ecológica por senderos naturales hasta llegar a las cristalinas aguas del Charco Oscuro.</p>
+            <div class="exp-tags"><span class="exp-tag verde">🌿 Naturaleza</span><span class="exp-tag verde">⏱️ ~2 horas</span></div>
+            <p class="exp-pending">📍 Punto de encuentro: Pendiente · 💰 Precio: Pendiente</p>
+            <a class="btn-exp verde" href="https://wa.me/57PENDIENTE?text=Hola,%20me%20interesa%20la%20caminata%20a%20Charco%20Oscuro%20en%20Vijes%20😊" target="_blank">Reservar con guía ↗</a>
+          </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-banner" style="background:linear-gradient(135deg,#f3e8ff,#d4b0f0)">🎨</div>
+          <div class="exp-body">
+            <h4>Graffiti Tour Vijes</h4>
+            <p>Descubre el arte urbano que cuenta la historia y cultura de Vijes a través de sus murales.</p>
+            <div class="exp-tags"><span class="exp-tag">🎨 Arte</span><span class="exp-tag">⏱️ ~1.5 horas</span></div>
+            <p class="exp-pending">📍 Punto de encuentro: Pendiente · 💰 Precio: Pendiente</p>
+            <a class="btn-exp" href="https://wa.me/57PENDIENTE?text=Hola,%20me%20interesa%20el%20Graffiti%20Tour%20de%20Vijes%20😊" target="_blank">Reservar con guía ↗</a>
+          </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-banner" style="background:linear-gradient(135deg,#fff3d4,#f0d080)">🍮</div>
+          <div class="exp-body">
+            <h4>Ruta de los Dulces Típicos</h4>
+            <p>Recorre los puntos de venta de manjar blanco, cortado y longaniza vijeña. Conoce cómo se elaboran.</p>
+            <div class="exp-tags"><span class="exp-tag dorado">🍬 Gastronomía</span><span class="exp-tag dorado">⏱️ ~1 hora</span></div>
+            <p class="exp-pending">💰 Precio: Pendiente</p>
+            <a class="btn-exp dorado" href="https://wa.me/57PENDIENTE?text=Hola,%20me%20interesa%20la%20ruta%20de%20dulces%20típicos%20de%20Vijes%20😊" target="_blank">Reservar con guía ↗</a>
+          </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-banner" style="background:linear-gradient(135deg,#fde8e8,#f0a0a0)">🏛️</div>
+          <div class="exp-body">
+            <h4>Tour Cultural e Histórico</h4>
+            <p>Explora el Museo Santa Bárbara, el Horno Artesanal El Diamante y los sitios patrimoniales de Vijes.</p>
+            <div class="exp-tags"><span class="exp-tag" style="background:#fde8e8;color:#c05050">🏛️ Cultura</span><span class="exp-tag" style="background:#fde8e8;color:#c05050">⏱️ ~2 horas</span></div>
+            <p class="exp-pending">💰 Precio: Pendiente</p>
+            <a class="btn-exp" style="background:#c05050" href="https://wa.me/57PENDIENTE?text=Hola,%20me%20interesa%20el%20tour%20cultural%20de%20Vijes%20😊" target="_blank">Reservar con guía ↗</a>
+          </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-banner" style="background:linear-gradient(135deg,#e8f4fd,#a0d4f0)">🦜</div>
+          <div class="exp-body">
+            <h4>Aviturismo en Vijes</h4>
+            <p>Observa aves endémicas y migratorias en los corredores naturales. Un destino privilegiado para los amantes de las aves.</p>
+            <div class="exp-tags"><span class="exp-tag" style="background:#e8f4fd;color:#1a6ea0">🦜 Aves</span><span class="exp-tag" style="background:#e8f4fd;color:#1a6ea0">🌿 Naturaleza</span><span class="exp-tag" style="background:#e8f4fd;color:#1a6ea0">⏱️ ~3 horas</span></div>
+            <p class="exp-pending">📍 Punto de encuentro: Pendiente · 💰 Precio: Pendiente</p>
+            <a class="btn-exp" style="background:#1a6ea0" href="https://wa.me/57PENDIENTE?text=Hola,%20me%20interesa%20el%20aviturismo%20en%20Vijes%20😊" target="_blank">Reservar con guía ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>`;
+    return;
+  }
+
+  const filtered = getFiltered();
+
   if (filtered.length === 0) {
-    container.innerHTML = `<div class="empty"><div class="empty-icon">🔍</div><p>No encontramos lugares con ese nombre.</p><p style="font-size:0.8rem;margin-top:8px;color:#aaa;">Intenta con otro término de búsqueda.</p></div>`;
+    container.innerHTML = `<div class="empty"><div style="font-size:3rem;margin-bottom:12px">🔍</div><p>No encontramos lugares con ese nombre.</p></div>`;
     return;
   }
 
   const catTitle = {
-    todos: 'Todos los lugares',
-    hoteles: 'Hoteles y Hospedaje',
-    restaurantes: 'Restaurantes',
-    dulces: 'Dulces Típicos de Vijes',
-    cafeterias: 'Cafeterías y Panaderías',
-    heladerias: 'Heladerías',
-    rapidas: 'Comidas Rápidas',
-    bailaderos: 'Bailaderos y Rumba',
-    artesanias: 'Tienda Artesanal',
-    museo: 'Museos y Cultura',
-    guias: 'Guías Locales'
+    descubre:'Descubre Vijes', hoteles:'Hoteles y Hospedaje', restaurantes:'Restaurantes', dulces:'Dulces Típicos de Vijes',
+    cafeterias:'Cafeterías y Panaderías', heladerias:'Heladerías', rapidas:'Comidas Rápidas',
+    bailaderos:'Bailaderos y Rumba', museo:'Museos y Cultura', artesanias:'Tienda Artesanal', guias:'Guías Locales'
   };
 
-  const colorMap = { morado: '#9B5FC0', verde: '#6DBF2E', dorado: '#C98A1A' };
+  const titleColor = ['hoteles','museo','artesanias','dulces','dorado'].includes(currentTab) ? '#C98A1A' : currentTab === 'restaurantes' ? '#9B5FC0' : ['guias','bailaderos','heladerias','verde'].includes(currentTab) ? '#52a018' : '#9B5FC0';
 
-  let html = `<div class="section-title">
-    <h3 style="color:${['hoteles','museo','artesanias'].includes(currentTab)?'#C98A1A':currentTab==='restaurantes'?'#9B5FC0':currentTab==='guias'||currentTab==='bailaderos'?'#52a018':'#9B5FC0'}">${catTitle[currentTab]||''}</h3>
-    <span class="count">${filtered.length}</span>
-  </div>
-  <div class="cards-grid">`;
+  // Render especial para guías
+  if (currentTab === 'guias') {
+    let html = `<div class="section-title"><h3 style="color:#52a018">Guías Locales</h3><span class="count" style="background:#6DBF2E">${filtered.length}</span></div>
+    <div class="cards-grid">`;
+    filtered.forEach(p => {
+      const waNum = p.telefono || 'PENDIENTE';
+      const waMsg = encodeURIComponent(`Hola ${p.name}, vi tu perfil en la Guía Turística de Vijes y me interesa contratar un recorrido 😊`);
+      const waLink = p.telefono ? `https://wa.me/57${p.telefono.replace(/\D/g,'')}?text=${waMsg}` : '#';
+      html += `<div class="guia-card">
+        <div class="guia-header">
+          <div class="guia-avatar">🧭</div>
+          <div><div class="card-name">${p.name}</div><span class="card-category cat-verde">Guía Local</span></div>
+        </div>
+        <div class="guia-body">
+          <div class="guia-row"><strong>🥾 Recorridos:</strong><span>${p.desc || '<span style=\'font-style:italic;color:#bbb\'>Pendiente</span>'}</span></div>
+          <div class="guia-row"><strong>💰 Precio:</strong><span>${p.precio || '<span style=\'font-style:italic;color:#bbb\'>Pendiente</span>'}</span></div>
+          <div class="guia-row"><strong>🕐 Horario:</strong><span>${p.horario || '<span style=\'font-style:italic;color:#bbb\'>Pendiente</span>'}</span></div>
+        </div>
+        <div class="card-footer">
+          ${p.telefono
+            ? `<a class="wa-btn" href="${waLink}" target="_blank">💬 Escribir por WhatsApp</a>`
+            : `<span style="font-size:0.78rem;font-style:italic;color:#bbb">📱 Contacto pendiente</span>`
+          }
+        </div>
+      </div>`;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+    return;
+  }
+
+  let html = `<div class="section-title"><h3 style="color:${titleColor}">${catTitle[currentTab]||''}</h3><span class="count">${filtered.length}</span></div><div class="cards-grid">`;
 
   filtered.forEach(p => {
     const label = getCatLabel(p);
     const btnColor = p.color;
     const horario = p.horario || '<span class=\'pending\'>Próximamente</span>';
-    const telefono = p.telefono ? `<a href="https://wa.me/57${p.telefono.replace(/\D/g,'')}" onclick="event.stopPropagation()">${p.telefono}</a>` : '<span class=\'pending\'>Próximamente</span>';
+    const telefono = p.telefono
+      ? `<a href="https://wa.me/57${p.telefono.replace(/\D/g,'')}" onclick="event.stopPropagation()">${p.telefono}</a>`
+      : '<span class=\'pending\'>Próximamente</span>';
     const precioRow = p.cat === 'hoteles' ? `<div class="card-extra-row"><span class="label">💰 Precio:</span> ${p.precio || '<span class=\'pending\'>Próximamente</span>'}</div>` : '';
-    const isGuia = p.cat === 'guias';
-    html += `<div class="place-card" onclick="openMaps(${p.lat},${p.lng},'${p.name.replace(/'/g,"\\'")}')">
+
+    html += `<div class="place-card" onclick="window.open('https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}','_blank')">
       <div class="card-header">
         <div class="card-icon ${p.color}">${p.icon}</div>
         <div class="card-info">
@@ -557,11 +565,7 @@ function render() {
         ${precioRow}
       </div>
       <div class="card-footer">
-
-        ${isGuia && p.telefono
-          ? `<a class="map-btn verde" href="https://wa.me/57${p.telefono}" target="_blank" onclick="event.stopPropagation()">WhatsApp ↗</a>`
-          : `<a class="map-btn ${btnColor}" href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}" target="_blank" onclick="event.stopPropagation()">Ver en mapa ↗</a>`
-        }
+        <a class="map-btn ${btnColor}" href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}" target="_blank" onclick="event.stopPropagation()">Ver en mapa ↗</a>
       </div>
     </div>`;
   });
@@ -571,6 +575,18 @@ function render() {
 }
 
 render();
+
+function togglePlan() {
+  const detalle = document.getElementById('plan-detalle');
+  const txt = document.getElementById('plan-toggle-txt');
+  if (detalle.style.display === 'none') {
+    detalle.style.display = 'block';
+    txt.innerHTML = '▲ Cerrar itinerario';
+  } else {
+    detalle.style.display = 'none';
+    txt.innerHTML = '▼ Ver itinerario';
+  }
+}
 </script>
 </body>
 </html>
