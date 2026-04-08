@@ -163,7 +163,9 @@
     overflow: hidden; cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     border: 1.5px solid #f0e8fa;
+    display: flex; flex-direction: column;
   }
+  .card-extra { flex: 1; }
   .place-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 32px rgba(155,95,192,0.22);
@@ -201,11 +203,7 @@
   .card-footer {
     padding: 10px 16px;
     border-top: 1.5px solid #f8f0ff;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .card-coords {
-    font-size: 0.72rem; color: #b0a0c0;
-    display: flex; align-items: center; gap: 4px;
+    display: flex; align-items: center; justify-content: center;
   }
   .map-btn {
     background: var(--morado); color: white;
@@ -299,7 +297,7 @@
   <div class="stat"><div class="stat-num">6</div><div class="stat-label">Hoteles</div></div>
   <div class="stat"><div class="stat-num">35+</div><div class="stat-label">Restaurantes</div></div>
   <div class="stat"><div class="stat-num">3</div><div class="stat-label">Bailaderos</div></div>
-  <div class="stat"><div class="stat-num">10</div><div class="stat-label">Dulces típicos</div></div>
+  <div class="stat"><div class="stat-num">5</div><div class="stat-label">Guías locales</div></div>
 </div>
 
 <!-- TABS -->
@@ -311,6 +309,9 @@
   <button class="tab" onclick="switchTab('heladerias', this)">🍦 Heladerías</button>
   <button class="tab" onclick="switchTab('rapidas', this)">🍔 Comidas rápidas</button>
   <button class="tab" onclick="switchTab('bailaderos', this)">🎶 Bailaderos</button>
+  <button class="tab" onclick="switchTab('artesanias', this)">🧵 Artesanías</button>
+  <button class="tab" onclick="switchTab('museo', this)">🏛️ Museo</button>
+  <button class="tab" onclick="switchTab('guias', this)">🧭 Guías</button>
 </div>
 
 <!-- SUBFILTERS for restaurants -->
@@ -402,6 +403,32 @@ const places = [
   { id:61, name:'Discoteca El Rey', cat:'bailaderos', subcat:'', icon:'👑', color:'morado', desc:'Discoteca en Vijes para bailar y disfrutar.', lat:3.7016226, lng:-76.4426516 },
   { id:62, name:'Licorera La Mina Rancho y Licores', cat:'bailaderos', subcat:'', icon:'🍹', color:'morado', desc:'Rancho, licores y rumba en Vijes.', lat:3.7000694, lng:-76.4424918 },
 
+  // TIENDA ARTESANAL
+  { id:63, name:'Tienda Artesanal', cat:'artesanias', subcat:'', icon:'🧵', color:'dorado', desc:'Artesanías y productos típicos de Vijes.', lat:3.7005008, lng:-76.4431182 },
+
+  // MUSEO
+  { id:64, name:'Museo Santa Bárbara', cat:'museo', subcat:'', icon:'🏛️', color:'morado', desc:'Patrimonio cultural e histórico de Vijes.', lat:3.700805, lng:-76.442994 },
+
+  // GUÍAS LOCALES
+  { id:65, name:'Luis Caicedo', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', telefono:'3170960178', lat:3.7006, lng:-76.4425 },
+  { id:66, name:'Jaslehidy Montoya', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', telefono:'3188578088', lat:3.7006, lng:-76.4425 },
+  { id:67, name:'July García', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', telefono:'3154976568', lat:3.7006, lng:-76.4425 },
+  { id:68, name:'Viviana Solano', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', telefono:'3214440563', lat:3.7006, lng:-76.4425 },
+  { id:69, name:'Danny Ruiz', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', telefono:'3122364325', lat:3.7006, lng:-76.4425 },
+
+  // MUSEO
+  { id:70, name:'Museo Comunitario Horno Artesanal El Diamante', cat:'museo', subcat:'', icon:'🏺', color:'dorado', desc:'Museo comunitario con horno artesanal tradicional de Vijes.', lat:3.707429, lng:-76.453182, horario:'', telefono:'', precio:'' },
+
+  // ARTESANÍAS
+  { id:69, name:'Tienda Artesanal', cat:'artesanias', subcat:'', icon:'🧵', color:'dorado', desc:'Artesanías y productos típicos de Vijes.', lat:3.7005008, lng:-76.4431182, horario:'', telefono:'', precio:'' },
+
+  // GUÍAS LOCALES
+  { id:64, name:'Luis Caicedo', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', lat:3.7006, lng:-76.4424, horario:'', telefono:'', precio:'' },
+  { id:65, name:'Jaslehidy Montoya', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', lat:3.7006, lng:-76.4424, horario:'', telefono:'', precio:'' },
+  { id:66, name:'Yuli García', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', lat:3.7006, lng:-76.4424, horario:'', telefono:'', precio:'' },
+  { id:67, name:'Danny Ruiz', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', lat:3.7006, lng:-76.4424, horario:'', telefono:'', precio:'' },
+  { id:68, name:'Roxana Ponce', cat:'guias', subcat:'', icon:'🧭', color:'verde', desc:'Guía local de Vijes.', lat:3.7006, lng:-76.4424, horario:'', telefono:'', precio:'' },
+
   // COMIDAS RÁPIDAS
   { id:52, name:'Condorito Doriloco', cat:'rapidas', subcat:'', icon:'🌮', color:'morado', desc:'Comidas rápidas con sabor.', lat:3.6992399, lng:-76.4413238 },
   { id:53, name:'Las Arepas de Kathe', cat:'rapidas', subcat:'', icon:'🫓', color:'morado', desc:'Arepas artesanales para llevar.', lat:3.699292, lng:-76.44099 },
@@ -468,6 +495,9 @@ function getCatLabel(p) {
     rapidas: 'Comidas Rápidas'
   };
   if (p.cat === 'restaurantes') return labels.restaurantes[p.subcat] || 'Restaurante';
+  if (p.cat === 'guias') return 'Guía Local';
+  if (p.cat === 'museo') return 'Museo';
+  if (p.cat === 'artesanias') return 'Artesanías';
   return labels[p.cat] || p.cat;
 }
 
@@ -492,13 +522,16 @@ function render() {
     cafeterias: 'Cafeterías y Panaderías',
     heladerias: 'Heladerías',
     rapidas: 'Comidas Rápidas',
-    bailaderos: 'Bailaderos y Rumba'
+    bailaderos: 'Bailaderos y Rumba',
+    artesanias: 'Tienda Artesanal',
+    museo: 'Museos y Cultura',
+    guias: 'Guías Locales'
   };
 
   const colorMap = { morado: '#9B5FC0', verde: '#6DBF2E', dorado: '#C98A1A' };
 
   let html = `<div class="section-title">
-    <h3 style="color:${currentTab==='hoteles'?'#C98A1A':currentTab==='restaurantes'||currentTab==='todos'?'#9B5FC0':'#C98A1A'}">${catTitle[currentTab]||''}</h3>
+    <h3 style="color:${['hoteles','museo','artesanias'].includes(currentTab)?'#C98A1A':currentTab==='restaurantes'?'#9B5FC0':currentTab==='guias'||currentTab==='bailaderos'?'#52a018':'#9B5FC0'}">${catTitle[currentTab]||''}</h3>
     <span class="count">${filtered.length}</span>
   </div>
   <div class="cards-grid">`;
@@ -509,6 +542,7 @@ function render() {
     const horario = p.horario || '<span class=\'pending\'>Próximamente</span>';
     const telefono = p.telefono ? `<a href="https://wa.me/57${p.telefono.replace(/\D/g,'')}" onclick="event.stopPropagation()">${p.telefono}</a>` : '<span class=\'pending\'>Próximamente</span>';
     const precioRow = p.cat === 'hoteles' ? `<div class="card-extra-row"><span class="label">💰 Precio:</span> ${p.precio || '<span class=\'pending\'>Próximamente</span>'}</div>` : '';
+    const isGuia = p.cat === 'guias';
     html += `<div class="place-card" onclick="openMaps(${p.lat},${p.lng},'${p.name.replace(/'/g,"\\'")}')">
       <div class="card-header">
         <div class="card-icon ${p.color}">${p.icon}</div>
@@ -524,10 +558,11 @@ function render() {
         ${precioRow}
       </div>
       <div class="card-footer">
-        <span class="card-coords">📍 ${p.lat.toFixed(4)}, ${p.lng.toFixed(4)}</span>
-        <a class="map-btn ${btnColor}" href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}" target="_blank" onclick="event.stopPropagation()">
-          Ver en mapa ↗
-        </a>
+
+        ${isGuia && p.telefono
+          ? `<a class="map-btn verde" href="https://wa.me/57${p.telefono}" target="_blank" onclick="event.stopPropagation()">WhatsApp ↗</a>`
+          : `<a class="map-btn ${btnColor}" href="https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}" target="_blank" onclick="event.stopPropagation()">Ver en mapa ↗</a>`
+        }
       </div>
     </div>`;
   });
