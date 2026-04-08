@@ -585,4 +585,14 @@ render();
 function togglePlan() {
   const detalle = document.getElementById('plan-detalle');
   const txt = document.getElementById('plan-toggle-txt');
-  if (detalle.style.di
+  if (detalle.style.display === 'none') {
+    detalle.style.display = 'block';
+    txt.innerHTML = '▲ Cerrar itinerario';
+  } else {
+    detalle.style.display = 'none';
+    txt.innerHTML = '▼ Ver itinerario';
+  }
+}
+</script>
+</body>
+</html>
