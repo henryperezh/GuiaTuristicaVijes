@@ -211,6 +211,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
   <button class="tab dorado" onclick="switchTab('artesanias',this)">🧵 Artesanías</button>
   <button class="tab verde" onclick="switchTab('recorridos',this)">🗺️ Recorridos</button>
   <button class="tab verde" onclick="switchTab('guias',this)">🧭 Guías Locales</button>
+  <button class="tab" onclick="switchTab('actividades',this)">🎭 Actividades</button>
 </div>
 
 <!-- SUBFILTERS -->
@@ -319,6 +320,18 @@ const places = [
   // ATRACTIVOS NATURALES
   { id:73, name:'Vuelta de los Ataúdes', cat:'natural', subcat:'', icon:'⚰️', color:'verde', desc:'Formación geológica de diabasas columnares con vestigios del fin de una era volcánica. Un paisaje imponente al costado de la carretera.', lat:3.7138795, lng:-76.4566271, horario:'', telefono:'', precio:'' },
 
+  // ACTIVIDADES CULTURALES, DEPORTIVAS Y MÁS
+  { id:80, name:'Festival del Manjar Blanco', cat:'actividades', subcat:'cultural', icon:'🍮', color:'dorado', desc:'Celebración anual del dulce más representativo de Vijes. Demostraciones artesanales, concursos y degustaciones del auténtico manjar blanco vijeño.', lat:3.7006443, lng:-76.4423025, horario:'Anual - consultar fecha', telefono:'', precio:'' },
+  { id:81, name:'Senderismo Vereda La Pedrera', cat:'actividades', subcat:'deportiva', icon:'🥾', color:'verde', desc:'Recorrido de senderismo hacia los petroglifos precolombinos de la vereda La Pedrera. Paisajes naturales del Valle del Cauca y gran biodiversidad.', lat:3.7260431, lng:-76.4540485, horario:'Lunes a domingo - con guía', telefono:'', precio:'' },
+  { id:82, name:'Recorrido de Arte Urbano', cat:'actividades', subcat:'cultural', icon:'🎨', color:'morado', desc:'Murales y arte callejero que retratan la identidad vijeña, sus tradiciones, dulces y gente. Un recorrido visual por el casco urbano.', lat:3.7006443, lng:-76.4423025, horario:'Libre - todo el día', telefono:'', precio:'' },
+  { id:83, name:'Ciclovía y Ciclopaseo', cat:'actividades', subcat:'deportiva', icon:'🚴', color:'verde', desc:'Ciclovía dominical por las calles de Vijes. También se organizan ciclopaseos hacia veredas y zonas rurales del municipio.', lat:3.7000363, lng:-76.4403578, horario:'Domingos y festivos', telefono:'', precio:'' },
+  { id:84, name:'Torneo de Tejo y Rana', cat:'actividades', subcat:'deportiva', icon:'🎯', color:'morado', desc:'Deporte tradicional colombiano practicado en varios establecimientos del municipio. Competencias amistosas y torneos locales.', lat:3.6993631, lng:-76.4412841, horario:'Fines de semana', telefono:'', precio:'' },
+  { id:85, name:'Observación de Aves (Aviturismo)', cat:'actividades', subcat:'naturaleza', icon:'🦜', color:'verde', desc:'Vijes está en un corredor biológico privilegiado. Avistamiento de aves endémicas y migratorias en los bosques y cañadas del municipio.', lat:3.7086035, lng:-76.4771037, horario:'Mañanas 5:00am - 9:00am', telefono:'', precio:'' },
+  { id:86, name:'Cabalgata por Veredas', cat:'actividades', subcat:'deportiva', icon:'🐴', color:'dorado', desc:'Recorridos a caballo por las veredas y haciendas de Vijes. Contacto con la cultura campesina del Valle del Cauca.', lat:3.7166875, lng:-76.4804375, horario:'Fines de semana', telefono:'', precio:'' },
+  { id:87, name:'Visita a Productores de Dulces', cat:'actividades', subcat:'cultural', icon:'🏭', color:'dorado', desc:'Visita guiada a talleres artesanales donde se elabora el manjar blanco, cortado vijeño y longaniza. Observa el proceso tradicional y degusta los productos.', lat:3.6992814, lng:-76.4389027, horario:'Lunes a sábado', telefono:'', precio:'' },
+  { id:88, name:'Torneos Deportivos Municipales', cat:'actividades', subcat:'deportiva', icon:'⚽', color:'verde', desc:'Torneos de fútbol, microfútbol y otros deportes en las instalaciones deportivas del municipio. Ambiente festivo y comunidad activa.', lat:3.6993453, lng:-76.4419099, horario:'Fines de semana', telefono:'', precio:'' },
+  { id:89, name:'Noche Cultural en el Parque', cat:'actividades', subcat:'cultural', icon:'🎭', color:'morado', desc:'Eventos culturales, música en vivo, teatro y danza en el parque principal de Vijes. Espacio de encuentro y expresión artística de la comunidad.', lat:3.7006443, lng:-76.4423025, horario:'Viernes y sábados noche', telefono:'', precio:'' },
+
   // COMIDAS RÁPIDAS
   { id:52, name:'Condorito Doriloco', cat:'rapidas', subcat:'', icon:'🌮', color:'morado', desc:'Comidas rápidas con sabor.', lat:3.6992399, lng:-76.4413238 },
   { id:53, name:'Las Arepas de Kathe', cat:'rapidas', subcat:'', icon:'🫓', color:'morado', desc:'Arepas artesanales para llevar.', lat:3.699292, lng:-76.44099 },
@@ -396,6 +409,10 @@ function getCatLabel(p) {
   if (p.cat === 'guias') return 'Guía Local';
   if (p.cat === 'sitios') return 'Sitio Cultural';
   if (p.cat === 'natural') return 'Atractivo Natural';
+  if (p.cat === 'actividades') {
+    const subcats = { cultural:'Actividad Cultural', deportiva:'Actividad Deportiva', naturaleza:'Ecoturismo / Naturaleza' };
+    return subcats[p.subcat] || 'Actividad';
+  }
   return labels[p.cat] || p.cat;
 }
 
@@ -449,6 +466,10 @@ function render() {
         <div class="acceso-icon" style="background:linear-gradient(135deg,#eafad4,#52a018)">🧭</div>
         <div class="acceso-label">Guías Locales</div>
       </div>
+      <div class="acceso-card" onclick="switchTabById('actividades')">
+        <div class="acceso-icon" style="background:linear-gradient(135deg,#f3e8ff,#9B5FC0)">🎭</div>
+        <div class="acceso-label">Actividades</div>
+      </div>
     </div>`;
     return;
   }
@@ -464,7 +485,7 @@ function render() {
     descubre:'Descubre Vijes', hoteles:'Hoteles y Hospedaje', restaurantes:'Restaurantes', dulces:'Dulces Típicos de Vijes',
     cafeterias:'Cafeterías y Panaderías', heladerias:'Heladerías', rapidas:'Comidas Rápidas',
     bailaderos:'Bailaderos y Rumba', museo:'Museos y Cultura', artesanias:'Tienda Artesanal',
-    guias:'Guías Locales', sitios:'Sitios Culturales', natural:'Atractivos Naturales', recorridos:'Recorridos'
+    guias:'Guías Locales', sitios:'Sitios Culturales', natural:'Atractivos Naturales', recorridos:'Recorridos', actividades:'Actividades Culturales y Deportivas'
   };
 
   const titleColor = ['hoteles','museo','artesanias','dulces','dorado'].includes(currentTab) ? '#C98A1A' : currentTab === 'restaurantes' ? '#9B5FC0' : ['guias','bailaderos','heladerias','verde','recorridos'].includes(currentTab) ? '#52a018' : '#9B5FC0';
