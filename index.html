@@ -470,11 +470,11 @@ const lugares = [
   { id:57, nombre:"Museo Santa Bárbara", categoria:"museo", icono:"🪆", desc:"Museo histórico y cultural del municipio de Vijes. Tel: 323 572 9399", lat:3.700805, lng:-76.442994, placeId:"ChIJUbRTgx7_OY4Rcz5foKguln8" },
   { id:58, nombre:"Museo Comunitario Horno Artesanal El Diamante", categoria:"museo", icono:"🏺", desc:"Museo comunitario con horno artesanal tradicional de Vijes.", lat:3.707429, lng:-76.453182, placeId:null },
   { id:59, nombre:"Tienda Artesanal", categoria:"artesanias", icono:"🧵", desc:"Artesanías y productos típicos de Vijes. Tel: 321 444 0563", lat:3.7005008, lng:-76.4431182, placeId:"ChIJfdb7cAD_OY4R6SzwOm5QP7Q" },
-  { id:60, nombre:"Luis Caicedo", categoria:"guias", icono:"🧭", desc:"Intérprete local de Vijes. Tel: 3170960178", lat:3.7006, lng:-76.4424, placeId:null },
+  { id:60, nombre:"Luis Caicedo", categoria:"guias", icono:"🧭", desc:"Intérprete local y aviturismo. Tel: 3170960178", lat:3.7006, lng:-76.4424, placeId:null },
   { id:61, nombre:"Jaslehidy Montoya", categoria:"guias", icono:"🧭", desc:"Intérprete local de Vijes. Tel: 3188578088", lat:3.7006, lng:-76.4424, placeId:null },
   { id:62, nombre:"Yuli García", categoria:"guias", icono:"🧭", desc:"Intérprete local de Vijes. Tel: 3154976568", lat:3.7006, lng:-76.4424, placeId:null },
-  { id:63, nombre:"Danny Ruiz", categoria:"guias", icono:"🧭", desc:"Intérprete local de Vijes. Tel: 3122364325", lat:3.7006, lng:-76.4424, placeId:null },
-  { id:64, nombre:"Roxana Ponce", categoria:"guias", icono:"🧭", desc:"Intérprete local de Vijes. Tel: 3015051133", lat:3.7006, lng:-76.4424, placeId:null },
+  { id:63, nombre:"Danny Ruiz", categoria:"guias", icono:"🧭", desc:"Aviturismo en Vijes. Tel: 3122364325", lat:3.7006, lng:-76.4424, placeId:null },
+  { id:64, nombre:"Roxana Ponce", categoria:"guias", icono:"🧭", desc:"Aviturismo en Vijes. Tel: 3015051133", lat:3.7006, lng:-76.4424, placeId:null },
   { id:65, nombre:"Piedra del Sol", categoria:"sitios", icono:"🪬", desc:"Monolito con grabados precolombinos ubicado en la vereda La Pedrera, a 4 km del casco urbano. Uno de los petroglifos más importantes de la región.", lat:3.7260431, lng:-76.4540485, placeId:null },
   { id:66, nombre:"Piedra del Indio", categoria:"sitios", icono:"🗿", desc:"Grabados rupestres ancestrales que revelan la presencia de culturas precolombinas en el territorio vijeño.", lat:3.7635312, lng:-76.5182917, placeId:null },
   { id:67, nombre:"Vuelta de los Ataúdes", categoria:"natural", icono:"⚰️", desc:"Formación geológica de diabasas columnares con vestigios del fin de una era volcánica. Un paisaje imponente al costado de la carretera.", lat:3.7138795, lng:-76.4566271, placeId:null },
@@ -500,7 +500,20 @@ function getCatLabel(lugar) {
     const subLabels = { tradicional:'Comida Tradicional', parrilla:'Parrilla / Asados', pizza:'Pizza / Internacional' };
     return subLabels[lugar.subcat] || 'Restaurante';
   }
-  return lugar.categoria;
+  const labels = {
+    hoteles: 'Hotel / Hospedaje',
+    dulces: 'Dulce Típico',
+    cafeterias: 'Cafetería / Panadería',
+    heladerias: 'Heladería',
+    rapidas: 'Comida Rápida',
+    bailaderos: 'Bailadero / Bar',
+    museo: 'Museo y Cultura',
+    artesanias: 'Tienda Artesanal',
+    guias: 'Intérprete Local',
+    sitios: 'Sitio de Interés',
+    natural: 'Atractivo Natural'
+  };
+  return labels[lugar.categoria] || lugar.categoria;
 }
 
 // Calcular distancia entre dos puntos (fórmula de Haversine)
