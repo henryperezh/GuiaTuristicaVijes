@@ -71,6 +71,81 @@
     white-space: nowrap;
   }
   .header-cta:hover { background: #d4541f; }
+  .header-cta-encuesta {
+    background: #E5427A;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .header-cta-encuesta:hover { background: #c92f66; }
+
+  /* ===== Modal emergente de ubicación ===== */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(32,40,61,0.55);
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.visible {
+    display: flex;
+  }
+  .modal-ubicacion-box {
+    background: white;
+    border-radius: 22px;
+    max-width: 380px;
+    width: 100%;
+    padding: 30px 26px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+  .modal-ubicacion-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+  .modal-ubicacion-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .modal-ubicacion-texto {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 22px;
+  }
+  .modal-ubicacion-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .modal-ubicacion-btn-principal {
+    background: var(--terracota);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 20px;
+    font-weight: 800;
+    font-size: 14.5px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+  }
+  .modal-ubicacion-btn-principal:hover { background: #d4541f; }
+  .modal-ubicacion-btn-secundario {
+    background: transparent;
+    color: #888;
+    border: none;
+    padding: 8px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+  }
+
 
   /* ===== Hero with video ===== */
   .hero {
@@ -123,6 +198,18 @@
     font-size: 15px;
     margin: 14px 0 0;
     max-width: 460px;
+  }
+  .hero p.hero-badge {
+    display: inline-block;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 16px 0 0;
+    padding: 8px 16px;
+    background: var(--terracota);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 30px;
+    box-shadow: 0 4px 14px rgba(232,100,47,0.45);
   }
 
   /* ===== Floating search/filter panel ===== */
@@ -246,6 +333,7 @@
   .subfilter-btn.sub-tradicional.active { background: var(--gold); border-color: var(--gold); }
   .subfilter-btn.sub-parrilla.active { background: var(--teal); border-color: var(--teal); }
   .subfilter-btn.sub-pizza.active { background: var(--terracota); border-color: var(--terracota); }
+  .subfilter-btn.sub-longaniza.active { background: #8B5A2B; border-color: #8B5A2B; }
 
   .count-badge {
     display: inline-block;
@@ -275,6 +363,106 @@
     padding: 10px 20px 40px;
     max-width: 1100px;
     margin: 0 auto;
+  }
+  .feria-programacion {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 20px 20px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 32px;
+    background: #FBF3E7;
+    border: 6px solid #F2A93B;
+    border-radius: 24px;
+    box-shadow: inset 0 0 0 6px #E8642F;
+  }
+  @media (max-width: 700px) {
+    .feria-programacion { grid-template-columns: 1fr; }
+  }
+  .feria-dia {
+    margin-bottom: 8px;
+  }
+  .feria-dia-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.5px;
+    font-size: 21px;
+    color: white;
+    background: #2455A4;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin-bottom: 14px;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.15);
+  }
+  .feria-evento {
+    display: flex;
+    gap: 12px;
+    padding: 8px 0;
+  }
+  .feria-hora {
+    font-weight: 800;
+    color: var(--ink);
+    min-width: 68px;
+    flex-shrink: 0;
+    font-size: 13.5px;
+  }
+  .feria-evento-texto {
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .feria-evento-texto em {
+    color: #777;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .feria-lugar-link {
+    color: #1D5FC2;
+    font-style: italic;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .feria-bar-naranja .feria-lugar-link { color: white; text-decoration-color: rgba(255,255,255,0.7); }
+  .feria-texto-azul, .feria-texto-azul em {
+    color: #1D5FC2;
+  }
+  .feria-bar-naranja {
+    background: #E8642F;
+    color: white;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+  .feria-bar-naranja em { color: rgba(255,255,255,0.85); }
+  .feria-extras {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 6px;
+    align-items: flex-start;
+  }
+  .feria-texto-azul {
+    font-weight: 800;
+    font-size: 13.5px;
+  }
+  .feria-bar-verde {
+    background: #4C9A5B;
+    color: white;
+    font-weight: 800;
+    font-size: 13.5px;
+    padding: 4px 12px;
+    border-radius: 6px;
+  }
+  .feria-pill {
+    background: #F553A0;
+    color: white;
+    font-weight: 800;
+    font-size: 14px;
+    padding: 5px 16px;
+    border-radius: 30px;
+    margin-top: 2px;
   }
   .card {
     background: white;
@@ -349,9 +537,21 @@
         <p>Guía turística · Encuentra lo más cercano a ti</p>
       </div>
     </div>
-    <button class="header-cta" id="miUbicacionBtnHeader">📍 Activar mi ubicación</button>
+    <a href="https://encuesta-situr.vercel.app/" target="_blank" class="header-cta header-cta-encuesta">💬 Danos tu opinión</a>
   </div>
 </header>
+
+<div class="modal-overlay" id="modalUbicacion">
+  <div class="modal-ubicacion-box">
+    <div class="modal-ubicacion-icon">📍</div>
+    <h3 class="modal-ubicacion-titulo">Activa tu ubicación</h3>
+    <p class="modal-ubicacion-texto">Para mostrarte la distancia y la ruta más rápida a cada sitio de Vijes, necesitamos acceso a tu ubicación.</p>
+    <div class="modal-ubicacion-botones">
+      <button class="modal-ubicacion-btn-principal" id="btnActivarUbicacionModal">Activar ubicación</button>
+      <button class="modal-ubicacion-btn-secundario" id="btnCerrarModalUbicacion">Ahora no</button>
+    </div>
+  </div>
+</div>
 
 <section class="hero">
   <video class="hero-video" autoplay muted loop playsinline poster="">
@@ -362,6 +562,7 @@
     <div class="hero-eyebrow">Vijes · Valle del Cauca</div>
     <h2>Un destino que brilla<br>entre montañas</h2>
     <p class="hero-sub">Hoteles, restaurantes, dulces y miradores a un clic de tu ubicación. Así de cerca está lo mejor de Vijes.</p>
+    <p class="hero-badge">🎉 Celebrando los 487 años de Vijes — primera guía turística digital del municipio.</p>
   </div>
 </section>
 
@@ -373,9 +574,10 @@
   <div class="filters-wrap">
   <div class="filters" id="filters">
     <button class="filter-btn active" data-cat="todos"><span class="ic">📌</span> Todos</button>
+    <button class="filter-btn" data-cat="programacion"><span class="ic">🎉</span> Programación Feria</button>
     <button class="filter-btn" data-cat="hoteles"><span class="ic">🏨</span> Hoteles</button>
     <button class="filter-btn" data-cat="restaurantes"><span class="ic">🍽️</span> Restaurantes</button>
-    <button class="filter-btn" data-cat="dulces"><span class="ic">🍬</span> Dulces</button>
+    <button class="filter-btn" data-cat="dulces"><span class="ic">🍲</span> Dulces Típicos</button>
     <button class="filter-btn" data-cat="cafeterias"><span class="ic">☕</span> Cafeterías</button>
     <button class="filter-btn" data-cat="heladerias"><span class="ic">🍦</span> Heladerías</button>
     <button class="filter-btn" data-cat="rapidas"><span class="ic">🍔</span> Comida Rápida</button>
@@ -391,6 +593,14 @@
     <button class="subfilter-btn sub-tradicional" data-sub="tradicional">🍚 Tradicional</button>
     <button class="subfilter-btn sub-parrilla" data-sub="parrilla">🍖 Parrilla</button>
     <button class="subfilter-btn sub-pizza" data-sub="pizza">🍕 Pizza / Internacional</button>
+    <button class="subfilter-btn sub-longaniza" data-sub="longaniza">🌭 Longaniza</button>
+  </div>
+  <div class="filters subfilters" id="subfiltersFeria" style="display:none;">
+    <button class="subfilter-btn active" data-subferia="todos">Todos los días</button>
+    <button class="subfilter-btn" data-subferia="Jueves 30 de Julio">Jueves 30</button>
+    <button class="subfilter-btn" data-subferia="Viernes 31 de Julio">Viernes 31</button>
+    <button class="subfilter-btn" data-subferia="Sábado 01 de Agosto">Sábado 01</button>
+    <button class="subfilter-btn" data-subferia="Domingo 02 de Agosto">Domingo 02</button>
   </div>
   </div>
 </div>
@@ -417,47 +627,39 @@ const lugares = [
   { id:4, nombre:"Hotel Plaza Blanca", categoria:"hoteles", icono:"🏨", desc:"Hotel céntrico cerca al parque.", lat:3.6993453, lng:-76.4419099, placeId:"ChIJNUlcMCX_OY4RHGTG1E9Y_kw" },
   { id:5, nombre:"Finca Alto Bonito", categoria:"hoteles", icono:"🌿", desc:"Finca rural con paisajes del Valle.", lat:3.7166875, lng:-76.4804375, placeId:"ChIJ-1stFvhVN44RDGl976jY8qw" },
   { id:6, nombre:"Mirador Los Ángeles", categoria:"hoteles", icono:"🌄", desc:"Mirador con alojamiento rural.", lat:3.7173751, lng:-76.483035, placeId:"ChIJW2VD_C1VN44Rn9j1k42IqwA" },
-  { id:7, nombre:"Finca Villa Soledad", categoria:"hoteles", icono:"🏕️", desc:"Cabañas en finca tranquila.", lat:3.7086035, lng:-76.4771037, placeId:"ChIJYfeGjqpVN44RWuqJsgiG11Y" },
+  { id:7, nombre:"Finca Villa Soledad", categoria:"hoteles", icono:"🏕️", desc:"Finca con cabañas, piscina y miradores entre las montañas de Vijes, ideal para desconectarse.", lat:3.7086035, lng:-76.4771037, placeId:"ChIJYfeGjqpVN44RWuqJsgiG11Y" },
   { id:8, nombre:"Mi Valle del Cauca", categoria:"restaurantes", icono:"🍛", desc:"Cocina regional vallecaucana.", lat:3.6992559, lng:-76.4435849, placeId:"ChIJvZECOAD_OY4RxICkXoOUkkY", subcat:"tradicional" },
-  { id:9, nombre:"Rinconcito Vijeño", categoria:"restaurantes", icono:"🥘", desc:"Comida casera tradicional.", lat:3.7014714, lng:-76.4424558, placeId:"ChIJp6lnIQD_OY4RZFHtGzvEQSk", subcat:"tradicional" },
+  { id:9, nombre:"Rinconcito Vijeño", categoria:"restaurantes", icono:"🥘", desc:"Comida casera tradicional.", lat:3.7014714, lng:-76.4424558, placeId:"ChIJp6lnIQD_OY4RZFHtGzvEQSk", subcat:"tradicional", nombreMaps:"Restaurante Rinconcito Vijeño" },
   { id:10, nombre:"Sazón Jiménez", categoria:"restaurantes", icono:"🍲", desc:"Cocina familiar.", lat:3.7024965, lng:-76.4425586, placeId:"ChIJ9XVIYwD_OY4Rdv8Lwth0EMQ", subcat:"tradicional" },
   { id:11, nombre:"La Ramada", categoria:"restaurantes", icono:"🌽", desc:"Ambiente familiar.", lat:3.6997795, lng:-76.443317, placeId:"ChIJ93DhwRf-OY4RjXQRRxPqTH0", subcat:"tradicional" },
   { id:12, nombre:"El Paraíso", categoria:"restaurantes", icono:"🍽️", desc:"Restaurante en el centro.", lat:3.7006443, lng:-76.4423025, placeId:"ChIJaTVAT3z_OY4RLa-MDcmc6KI", subcat:"tradicional" },
   { id:13, nombre:"Britto's Pizza, Pasta y Parrilla", categoria:"restaurantes", icono:"🥩", desc:"Parrilla, pizza y pasta.", lat:3.7006203, lng:-76.4423115, placeId:"ChIJxX7fsRf-OY4RCX8Yyw_zfPw", subcat:"pizza" },
   { id:14, nombre:"Mirador K-luz", categoria:"restaurantes", icono:"🌅", desc:"Restaurante bar con vista.", lat:3.6920688, lng:-76.4417792, placeId:"ChIJv2SrTwD_OY4RVvugcPgVeJ0", subcat:"parrilla" },
-  { id:15, nombre:"Macondo Gastro Bar", categoria:"restaurantes", icono:"🍷", desc:"Gastrobar contemporáneo.", lat:3.7004294, lng:-76.4411106, placeId:"ChIJq-qgPL3_OY4RN6Gdx9mEHJ8", subcat:"parrilla" },
+  { id:15, nombre:"Macondo Gastro Bar", categoria:"restaurantes", icono:"🍷", desc:"Restaurante tradicional en una casa centenaria; platos típicos vijeños, finalista de la Ruta de la Chuleta Valluna 2025.", lat:3.7004294, lng:-76.4411106, placeId:"ChIJq-qgPL3_OY4RN6Gdx9mEHJ8", subcat:"parrilla" },
   { id:16, nombre:"Donde El Cubano", categoria:"restaurantes", icono:"🍕", desc:"Pizza con toque cubano.", lat:3.6983496, lng:-76.439272, placeId:"ChIJb0Bfn38LJY4RRa9BOenTlz0", subcat:"pizza" },
   { id:17, nombre:"Shop Suey", categoria:"restaurantes", icono:"🥡", desc:"Cocina china auténtica.", lat:3.6996998, lng:-76.4451012, placeId:"ChIJQ55p9YP_OY4R7W90tb0Yw4Y", subcat:"pizza" },
-  { id:18, nombre:"El punto del buen gusto", categoria:"dulces", icono:"🍯", desc:"Dulces tradicionales.", lat:3.6989086, lng:-76.443581, placeId:null },
-  { id:19, nombre:"La Cecilia", categoria:"dulces", icono:"🍮", desc:"Manjar blanco y cortado.", lat:3.6997663, lng:-76.4452304, placeId:"ChIJAfLSDwD_OY4Rb7xmkGSelqY" },
-  { id:20, nombre:"Manjar Vijeño", categoria:"dulces", icono:"🍮", desc:"Auténtico manjar blanco.", lat:3.6985299, lng:-76.4391736, placeId:null },
+  { id:18, nombre:"El punto del buen gusto", categoria:"dulces", icono:"🍯", desc:"Venta de dulces típicos como manjar blanco y cortado.", lat:3.6989086, lng:-76.443581, placeId:null, nombreMaps:"Pastelería El Punto del Buen Gusto" },
+  { id:19, nombre:"La Cecilia", categoria:"dulces", icono:"🍮", desc:"Manjar blanco y cortado.", lat:3.6997663, lng:-76.4452304, placeId:"ChIJAfLSDwD_OY4Rb7xmkGSelqY", nombreMaps:"Local de Venta de Dulce de Manjarblanco y Cortado La Cecilia" },
   { id:21, nombre:"Café Museo Forjar", categoria:"cafeterias", icono:"☕", desc:"Café y espacio cultural.", lat:3.700957, lng:-76.4433061, placeId:"ChIJTfAuYFD_OY4Rd5DEWGhDmP0" },
+  { id:75, nombre:"Local de Bebidas Mesón Vijeño", categoria:"rapidas", icono:"🥤", desc:"Jugos y bebidas en el Parque Principal de Vijes.", lat:3.700957, lng:-76.4432, placeId:null },
   { id:22, nombre:"Panadería La Principal", categoria:"cafeterias", icono:"🥐", desc:"Productos horneados frescos.", lat:3.6999976, lng:-76.4433173, placeId:"ChIJcRzTNwD_OY4R8cqLWqzV32M" },
   { id:23, nombre:"Delicias Tropicales", categoria:"heladerias", icono:"🍦", desc:"Helados tropicales.", lat:3.7009003, lng:-76.4422891, placeId:"ChIJteTrTAD_OY4RuvRkOVJYTkE" },
   { id:24, nombre:"Bajo Cero", categoria:"heladerias", icono:"❄️", desc:"Helados fríos.", lat:3.7006022, lng:-76.4423762, placeId:"ChIJCZlRsBf-OY4RET711g2maYA" },
   { id:25, nombre:"Condorito Doriloco", categoria:"rapidas", icono:"🌮", desc:"Comidas rápidas.", lat:3.6992399, lng:-76.4413238, placeId:"ChIJf9MHxrOrMI4R4J4PVkdPrZo" },
   { id:26, nombre:"Burger House Vijes", categoria:"rapidas", icono:"🍔", desc:"Hamburguesas artesanales.", lat:3.7007508, lng:-76.4422361, placeId:"ChIJkaKMLAD_OY4RC9cmHWuNf6s" },
   { id:27, nombre:"Restaurante Hermanas Giraldo", categoria:"restaurantes", icono:"🍽️", desc:"Comida casera con sazón familiar.", lat:3.699296, lng:-76.4411253, placeId:"ChIJ2xrFXQD_OY4RpXFjLhAKxwQ", subcat:"tradicional" },
-  { id:28, nombre:"Restaurante Antojos Caribeños", categoria:"restaurantes", icono:"🫕", desc:"Sabores caribeños en Vijes.", lat:3.6993631, lng:-76.4412841, placeId:"ChIJLywOUQD_OY4RKy17hQ9NJ7I", subcat:"tradicional" },
-  { id:29, nombre:"Restaurante Toskana", categoria:"restaurantes", icono:"🍽️", desc:"Restaurante en el centro del municipio.", lat:3.7012557, lng:-76.4423132, placeId:"ChIJlQT2AAD_OY4RjN6t8SkT_wc", subcat:"tradicional" },
   { id:30, nombre:"Asadero y Restaurante El Paraíso", categoria:"restaurantes", icono:"🥩", desc:"Asadero y restaurante en zona central. Tel: 310 527 4179", lat:3.7007133, lng:-76.4423575, placeId:"ChIJXfW95Kn_OY4RtUkb7bSAIKc", subcat:"parrilla" },
-  { id:31, nombre:"Casa Wber", categoria:"restaurantes", icono:"🏡", desc:"Restaurante y alojamiento en zona rural de Vijes. Tel: 318 526 6103", lat:3.7135841, lng:-76.4729953, placeId:"ChIJTxOuOQBVN44RioL1HCP0lvI", subcat:"tradicional" },
+  { id:31, nombre:"Casa Wber", categoria:"restaurantes", icono:"🏡", desc:"Restaurante y alojamiento en el corregimiento de Villamaría, enfocado en cocina tradicional del Valle. Tel: 318 526 6103", lat:3.7135841, lng:-76.4729953, placeId:"ChIJTxOuOQBVN44RioL1HCP0lvI", subcat:"tradicional" },
   { id:32, nombre:"Restaurante Rancho Los Alpes", categoria:"restaurantes", icono:"🥩", desc:"Restaurante tradicional con oferta variada. Tel: 312 828 2279", lat:3.6920648, lng:-76.4427658, placeId:"ChIJJd3uVD7-OY4Rg_9Hr5y2rxk", subcat:"parrilla" },
   { id:33, nombre:"Restaurante y Parrilla Bar La Barra de José", categoria:"restaurantes", icono:"🔥", desc:"Parrilla y bar en el corazón de Vijes.", lat:3.7004056, lng:-76.44405, placeId:"ChIJTX1rjhf-OY4RHTPStQ37xCM", subcat:"parrilla" },
   { id:34, nombre:"Restaurante Pollo Brosvi", categoria:"restaurantes", icono:"🍗", desc:"Especialidad en pollo asado y parrilla. Tel: 313 730 6810", lat:3.7005204, lng:-76.4415517, placeId:"ChIJo6vJTRb-OY4RRiz3zYAVR_U", subcat:"parrilla" },
   { id:35, nombre:"Restaurante Latorre Típico y Parrilla", categoria:"restaurantes", icono:"🥩", desc:"Comida típica y parrilla en las afueras de Vijes. Tel: 310 397 3341", lat:3.6906826, lng:-76.4377384, placeId:"ChIJP_bZmTn-OY4RjOeowY-V_sg", subcat:"parrilla" },
   { id:36, nombre:"Restaurante Asados Lindelia", categoria:"restaurantes", icono:"🔥", desc:"Asados y parrilla de tradición vijeña. Tel: 322 533 8124", lat:3.6972022, lng:-76.4423642, placeId:"ChIJv2qRBgD_OY4R8mkIWA0UCAY", subcat:"parrilla" },
   { id:37, nombre:"Restaurante BTM", categoria:"restaurantes", icono:"🥘", desc:"Cocina española en Vijes.", lat:3.7013149, lng:-76.4401346, placeId:"ChIJbzETaQD_OY4RgKA-oXD_OLs", subcat:"pizza" },
-  { id:38, nombre:"Restaurante Arepería Paisa", categoria:"restaurantes", icono:"🫓", desc:"Arepas y comida paisa. Tel: 316 548 7528", lat:3.6996785, lng:-76.4434481, placeId:"ChIJSdMQSAb_OY4RjWfbPWz5Gic", subcat:"tradicional" },
-  { id:39, nombre:"Gastronomía Tradicional (Tamales, Manjar, Longaniza)", categoria:"dulces", icono:"🥮", desc:"Venta de tamales, manjar blanco y longaniza. Tel: 310 4948475 · 321 7491368", lat:3.6991481, lng:-76.4436171, placeId:null },
-  { id:40, nombre:"Cocina Tradicional, Dulces y Platos Típicos", categoria:"dulces", icono:"🍬", desc:"María Helena Izquierdo - Dulces y platos típicos.", lat:3.6985279, lng:-76.4441767, placeId:null },
-  { id:41, nombre:"Lácteos Jireth (Cortado, Manjar, Longaniza)", categoria:"dulces", icono:"🥛", desc:"Amparo Jiménez - Lácteos y productos típicos.", lat:3.7007216, lng:-76.4450164, placeId:null },
-  { id:42, nombre:"Ricuras de Vijes (Manjar Blanco y Cortado)", categoria:"dulces", icono:"✨", desc:"Tradición dulcera vijeña.", lat:3.6992814, lng:-76.4389027, placeId:null },
-  { id:43, nombre:"Manjares (Manjar Blanco y Cortado)", categoria:"dulces", icono:"🍯", desc:"Manjares típicos del municipio.", lat:3.6992694, lng:-76.439136, placeId:null },
-  { id:44, nombre:"Manjar Blanco y Cortado Vijeño", categoria:"dulces", icono:"🍮", desc:"Producto estrella de Vijes.", lat:3.699345, lng:-76.4393794, placeId:null },
-  { id:45, nombre:"Venta de Longaniza, Cuaresmeros y Manjar Blanco", categoria:"dulces", icono:"🌭", desc:"Marina Caldas - Productos típicos vijeños.", lat:3.6995549, lng:-76.4447409, placeId:null },
-  { id:46, nombre:"Venta de Longaniza y Cortado", categoria:"dulces", icono:"🌭", desc:"Longaniza y cortado artesanal de Vijes.", lat:3.7000363, lng:-76.4403578, placeId:null },
-  { id:47, nombre:"Venta de Longaniza", categoria:"dulces", icono:"🌭", desc:"Longaniza tradicional de Vijes.", lat:3.698385, lng:-76.4407965, placeId:null },
+  { id:38, nombre:"Restaurante Areperia Paisa", categoria:"restaurantes", icono:"🫓", desc:"Arepas y comida paisa. Tel: 316 548 7528", lat:3.6996785, lng:-76.4434481, placeId:"ChIJSdMQSAb_OY4RjWfbPWz5Gic", subcat:"tradicional" },
+  { id:39, nombre:"Restaurante Los Tamales de Doña Martha y Algo Más", categoria:"restaurantes", icono:"🥮", desc:"Venta de tamales, manjar blanco y longaniza. Tel: 310 4948475 · 321 7491368", lat:3.6991481, lng:-76.4436171, placeId:null, subcat:"longaniza" },
+  { id:41, nombre:"Lácteos Jireth (Cortado, Manjar, Longaniza)", categoria:"dulces", icono:"🥛", desc:"Amparo Jiménez - Lácteos y productos típicos.", lat:3.7008125, lng:-76.4453125, placeId:null, nombreMaps:"Local Lácteos Jireth" },
+  { id:42, nombre:"Ricuras de Vijes (Manjar Blanco y Cortado)", categoria:"dulces", icono:"✨", desc:"Tradición dulcera vijeña.", lat:3.6992814, lng:-76.4389027, placeId:null, nombreMaps:"Local de Venta de Manjarblanco y Cortado Ricuras de Vijes" },
   { id:48, nombre:"Panadería Pan Tojarse", categoria:"cafeterias", icono:"🍞", desc:"Panadería artesanal en Vijes.", lat:3.6984074, lng:-76.4411793, placeId:"ChIJq-NgGgD_OY4RyF8m2IaSYk4" },
   { id:49, nombre:"Panadería Pan y Arte", categoria:"cafeterias", icono:"🎨", desc:"Pan artesanal con arte y sabor.", lat:3.6961727, lng:-76.4393249, placeId:"ChIJ52EzcQD_OY4RgADodrkMWIA" },
   { id:50, nombre:"Heladería Toné", categoria:"heladerias", icono:"🍧", desc:"Heladería popular de Vijes. Tel: 314 730 4411", lat:3.7005295, lng:-76.4439158, placeId:"ChIJG1a80iumMI4R1eUsmvxwkYk" },
@@ -467,29 +669,81 @@ const lugares = [
   { id:54, nombre:"Songo Sorongo", categoria:"bailaderos", icono:"🎶", desc:"Bailadero y rumba en Vijes.", lat:3.700647, lng:-76.4421809, placeId:"ChIJy4voDgD_OY4RvLkznk2Lweo" },
   { id:55, nombre:"Discoteca El Rey", categoria:"bailaderos", icono:"👑", desc:"Discoteca en Vijes para bailar y disfrutar.", lat:3.7016226, lng:-76.4426516, placeId:"ChIJJ1FADxf-OY4RS8QwQWGf8f8" },
   { id:56, nombre:"Licorera La Mina Rancho y Licores", categoria:"bailaderos", icono:"🍹", desc:"Rancho, licores y rumba en Vijes.", lat:3.7000694, lng:-76.4424918, placeId:"ChIJr-WEi8r_OY4RiJFD09B_7vc" },
-  { id:57, nombre:"Museo Santa Bárbara", categoria:"museo", icono:"🪆", desc:"Museo histórico y cultural del municipio de Vijes. Tel: 323 572 9399", lat:3.700805, lng:-76.442994, placeId:"ChIJUbRTgx7_OY4Rcz5foKguln8" },
-  { id:58, nombre:"Museo Comunitario Horno Artesanal El Diamante", categoria:"museo", icono:"🏺", desc:"Museo comunitario con horno artesanal tradicional de Vijes.", lat:3.707429, lng:-76.453182, placeId:null },
+  { id:57, nombre:"Museo Santa Bárbara", categoria:"museo", icono:"🪆", desc:"Museo con más de 6.000 piezas: arqueología precolombina, cocina tradicional vijeña, arte religioso y oficios artesanales. Tel: 323 572 9399", lat:3.700805, lng:-76.442994, placeId:"ChIJUbRTgx7_OY4Rcz5foKguln8" },
   { id:59, nombre:"Tienda Artesanal", categoria:"artesanias", icono:"🧵", desc:"Artesanías y productos típicos de Vijes. Tel: 321 444 0563", lat:3.7005008, lng:-76.4431182, placeId:"ChIJfdb7cAD_OY4R6SzwOm5QP7Q" },
   { id:60, nombre:"Luis Caicedo", categoria:"guias", icono:"🧭", desc:"Intérprete local y aviturismo. Tel: 3170960178", lat:3.7006, lng:-76.4424, placeId:null },
   { id:61, nombre:"Jaslehidy Montoya", categoria:"guias", icono:"🧭", desc:"Intérprete local de Vijes. Tel: 3188578088", lat:3.7006, lng:-76.4424, placeId:null },
   { id:62, nombre:"Yuli García", categoria:"guias", icono:"🧭", desc:"Intérprete local de Vijes. Tel: 3154976568", lat:3.7006, lng:-76.4424, placeId:null },
   { id:63, nombre:"Danny Ruiz", categoria:"guias", icono:"🧭", desc:"Aviturismo en Vijes. Tel: 3122364325", lat:3.7006, lng:-76.4424, placeId:null },
   { id:64, nombre:"Roxana Ponce", categoria:"guias", icono:"🧭", desc:"Aviturismo en Vijes. Tel: 3015051133", lat:3.7006, lng:-76.4424, placeId:null },
-  { id:65, nombre:"Piedra del Sol", categoria:"sitios", icono:"🪬", desc:"Monolito con grabados precolombinos ubicado en la vereda La Pedrera, a 4 km del casco urbano. Uno de los petroglifos más importantes de la región.", lat:3.7260431, lng:-76.4540485, placeId:null },
-  { id:66, nombre:"Piedra del Indio", categoria:"sitios", icono:"🗿", desc:"Grabados rupestres ancestrales que revelan la presencia de culturas precolombinas en el territorio vijeño.", lat:3.7635312, lng:-76.5182917, placeId:null },
-  { id:67, nombre:"Vuelta de los Ataúdes", categoria:"natural", icono:"⚰️", desc:"Formación geológica de diabasas columnares con vestigios del fin de una era volcánica. Un paisaje imponente al costado de la carretera.", lat:3.7138795, lng:-76.4566271, placeId:null },
-  { id:74, nombre:"Cascada de la Virgen", categoria:"natural", icono:"💦", desc:"Cascada natural en zona rural de Vijes, ideal para caminatas y desconectarse.", lat:3.714102, lng:-76.4765771, placeId:"ChIJNcO0woNVN44RwwTuekcXzV0" },
+  { id:65, nombre:"Piedra del Sol", categoria:"sitios", icono:"🪬", desc:"Monolito con petroglifos precolombinos en la vereda La Pedrera; la tradición dice que los indígenas vijíes rendían culto al sol en este lugar.", lat:3.7260431, lng:-76.4540485, placeId:null },
+  { id:66, nombre:"Piedra del Indio", categoria:"sitios", icono:"🗿", desc:"Grabados rupestres ancestrales que, junto a la Piedra del Sol, forman parte del legado precolombino vijeño.", lat:3.7635312, lng:-76.5182917, placeId:null },
+  { id:67, nombre:"Vuelta de los Ataúdes", categoria:"natural", icono:"⚰️", desc:"Formaciones rocosas a 3 km del casco urbano, en el corregimiento de Carbonero; sus fracturas apiladas recuerdan una fila de ataúdes, de ahí su nombre.", lat:3.7138795, lng:-76.4566271, placeId:null, nombreMaps:"Diabasas Columnares Los Ataúdes" },
+  { id:74, nombre:"Cascada de la Virgen", categoria:"natural", icono:"💦", desc:"También conocida como La Chorrera de la Virgen, en el corregimiento de Villamaría; uno de los atractivos naturales más visitados de Vijes.", lat:3.714102, lng:-76.4765771, placeId:"ChIJNcO0woNVN44RwwTuekcXzV0" },
   { id:68, nombre:"Las Arepas de Kathe", categoria:"rapidas", icono:"🫓", desc:"Arepas artesanales para llevar. Tel: 318 220 3336", lat:3.699292, lng:-76.44099, placeId:"ChIJawPl01D_OY4Rp8igshodTww" },
   { id:69, nombre:"Las Delicias de Shecho", categoria:"rapidas", icono:"🍔", desc:"Comidas rápidas caseras. Tel: 310 8351035", lat:3.6993983, lng:-76.4413927, placeId:"ChIJzbHB4Mn_OY4RcsVuiSthGy8" },
-  { id:70, nombre:"PK2 Fast Food", categoria:"rapidas", icono:"🍟", desc:"Fast food en el centro de Vijes. Tel: 312 252 3506", lat:3.7000397, lng:-76.4441061, placeId:"ChIJWfy-InX_OY4RAs0ZiHES5G4" },
   { id:71, nombre:"Restaurante El Solar", categoria:"rapidas", icono:"☀️", desc:"Comidas rápidas y platos del día.", lat:3.7004952, lng:-76.4418696, placeId:"ChIJudzt-fv_OY4RAynBVFwrcmE" },
   { id:72, nombre:"Sabores La Esquina", categoria:"rapidas", icono:"🌯", desc:"Comidas rápidas y restaurante en La Esquina de Vijes. Tel: 314 820 3319", lat:3.700485, lng:-76.4414592, placeId:"ChIJfcmAThb-OY4Rd68ukeTwlaA" },
   { id:73, nombre:"Ney Burger", categoria:"rapidas", icono:"🍔", desc:"Hamburguesas en Vijes. Tel: 312 802 0720", lat:3.6965408, lng:-76.4416631, placeId:"ChIJuYcVWjb_OY4R7NhGWCn9Zz4" },
+  { id:76, nombre:"Local de Venta de Longaniza y Dulce", categoria:"restaurantes", icono:"🌭", desc:"Venta de longaniza y dulces típicos.", lat:3.7000351, lng:-76.4403695, placeId:null, subcat:"longaniza", mapsUrl:"https://www.google.com/maps?cid=18065706105589415759" },
+];
+
+// Programación Feria Vijes 2026 - 487 Años
+const programacionFeria = [
+  {
+    dia: "Jueves 30 de Julio",
+    eventos: [
+      { hora: "5:00 am", texto: "Alborada Color", lugar: "Inicio Casa de la Cultura" },
+      { hora: "7:00 pm", texto: "Apertura - Alcalde Oscar Fdo Muñoz", lugar: "Parque P/pal", destacado: "naranja" },
+      { hora: "7:30 pm", texto: "3er Festival Nacional de Música Popular Vijes 2026", destacado: "naranja" },
+    ]
+  },
+  {
+    dia: "Viernes 31 de Julio",
+    eventos: [
+      { hora: "9:00 am", texto: "Mañana deportiva", lugar: "Parque Principal" },
+      { hora: "2:00 pm", texto: "Chiquiferia", lugar: "Parque Principal" },
+      { hora: "9:00 pm", texto: "Presentación Ganador 3er Festival Nacional de Música Popular", lugar: "Parque principal",
+        extras: [
+          { tipo: "azul", texto: "Presentación Talento Vijeño" },
+          { tipo: "verde", texto: "Los Relicarios" },
+          { tipo: "naranja", texto: "El Combo Mulalo" },
+          { tipo: "pill", texto: "Andrés Franco" },
+        ] },
+    ]
+  },
+  {
+    dia: "Sábado 01 de Agosto",
+    eventos: [
+      { hora: "10:00 am", texto: "Concurso minero", lugar: "Barrio Patio Bonito 1", lugarLat: 3.702161, lugarLng: -76.440340 },
+      { hora: "3:00 pm", texto: "Desfile Al Son de las Bandas", lugar: "Salida Centro Técnico", lugarMaps: "Centro de Formación Técnico y Tecnológico de Vijes" },
+      { hora: "9:00 pm", texto: "Presentación Talento Vijeño", lugar: "Parque principal", colorTexto: "azul",
+        extras: [
+          { tipo: "pill", texto: "DJ Martin" },
+          { tipo: "pill", texto: "Los Caucanitos" },
+          { tipo: "pill", texto: "Amílcar Boscán" },
+        ] },
+    ]
+  },
+  {
+    dia: "Domingo 02 de Agosto",
+    eventos: [
+      { hora: "3:00 pm", texto: "Desfile de Comparsa Alegría Vijeña", lugar: "Salida B/ Cangrejo" },
+      { hora: "9:00 pm", texto: "Presentación Talento Vijeño", lugar: "Parque principal", colorTexto: "azul",
+        extras: [
+          { tipo: "verde", texto: "Noche Joven Zona Retro" },
+          { tipo: "naranja", texto: "El Guaicozo y la Tecno Bomba" },
+          { tipo: "pill", texto: "Amín Martínez" },
+        ] },
+      { hora: "2:30 am", texto: "Cierre de Feria" },
+    ]
+  }
 ];
 
 // Variables globales
 let filtroActual = "todos";
 let subFiltroActual = "todos";
+let subFiltroFeriaActual = "todos";
 let textoBusqueda = "";
 let ubicacionActual = null; // { lat, lng }
 let ordenarPorDistancia = false;
@@ -569,13 +823,28 @@ function obtenerMiUbicacion() {
 }
 
 // Abrir el PERFIL real del negocio en Google Maps (reseñas, fotos, horarios)
-function abrirPerfil(placeId, nombre, lat, lng) {
-  if (placeId) {
-    window.open(`https://www.google.com/maps/place/?q=place_id:${placeId}`, '_blank');
-  } else {
-    // Si no tenemos el place_id confirmado, buscamos por nombre + ubicación
-    window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(nombre + ' Vijes Valle del Cauca')}`, '_blank');
+function abrirPerfil(placeId, nombre, lat, lng, usarCoords, mapsUrl) {
+  if (mapsUrl) {
+    window.open(mapsUrl, '_blank');
+    return;
   }
+  if (usarCoords) {
+    // Coordenadas exactas confirmadas (evita ambigüedad entre negocios de nombre parecido)
+    window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}&hl=es`, '_blank');
+    return;
+  }
+  // Buscamos siempre por nombre + ubicación (los placeId guardados no son confiables)
+  window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(nombre + ' Vijes Valle del Cauca')}`, '_blank');
+}
+
+// Abrir en Google Maps el lugar donde se desarrolla un evento de la Programación Feria
+function abrirLugarEvento(nombreLugar) {
+  window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(nombreLugar + ' Vijes Valle del Cauca')}&hl=es`, '_blank');
+}
+
+// Abrir en Google Maps por coordenadas exactas (pin confirmado)
+function abrirLugarEventoCoords(lat, lng) {
+  window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}&hl=es`, '_blank');
 }
 
 // Abrir Google Maps con ruta desde tu ubicación (si está disponible)
@@ -590,9 +859,47 @@ function abrirMaps(lat, lng, nombre) {
 
 // Renderizar tarjetas y mapa
 function renderizar() {
+  const container = document.getElementById('cardsContainer');
+
+  if (filtroActual === 'programacion') {
+    let html = '<div class="feria-programacion">';
+    const diasAMostrar = subFiltroFeriaActual === 'todos'
+      ? programacionFeria
+      : programacionFeria.filter(d => d.dia === subFiltroFeriaActual);
+    diasAMostrar.forEach(diaObj => {
+      html += `<div class="feria-dia"><h3 class="feria-dia-titulo">🌸 ${diaObj.dia}</h3>`;
+      diaObj.eventos.forEach(ev => {
+        const claseTexto = ev.destacado === 'naranja' ? 'feria-bar-naranja' : (ev.colorTexto === 'azul' ? 'feria-texto-azul' : '');
+        let extrasHtml = '';
+        if (ev.extras) {
+          extrasHtml = '<div class="feria-extras">' + ev.extras.map(ex => {
+            if (ex.tipo === 'pill') return `<span class="feria-pill">✳️ ${ex.texto} ✳️</span>`;
+            if (ex.tipo === 'verde') return `<div class="feria-bar-verde">${ex.texto}</div>`;
+            if (ex.tipo === 'naranja') return `<div class="feria-bar-naranja">${ex.texto}</div>`;
+            if (ex.tipo === 'azul') return `<div class="feria-texto-azul">${ex.texto}</div>`;
+            return `<div>${ex.texto}</div>`;
+          }).join('') + '</div>';
+        }
+        html += `
+          <div class="feria-evento">
+            <span class="feria-hora">${ev.hora}</span>
+            <div class="feria-evento-info">
+              <div class="feria-evento-texto ${claseTexto}">${ev.texto}${ev.lugar ? ` <a href="#" class="feria-lugar-link" onclick="event.stopPropagation(); ${ev.lugarLat ? `abrirLugarEventoCoords(${ev.lugarLat}, ${ev.lugarLng})` : `abrirLugarEvento('${(ev.lugarMaps || ev.lugar).replace(/'/g, "\\'")}')`}; return false;">- ${ev.lugar}</a>` : ''}</div>
+              ${extrasHtml}
+            </div>
+          </div>`;
+      });
+      html += `</div>`;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+    return;
+  }
+
   let filtrados = lugares.filter(lugar => {
-    const matchCat = filtroActual === "todos" || lugar.categoria === filtroActual;
-    const matchSub = filtroActual !== "restaurantes" || subFiltroActual === "todos" || lugar.subcat === subFiltroActual;
+    const buscando = textoBusqueda !== "";
+    const matchCat = buscando || filtroActual === "todos" || lugar.categoria === filtroActual;
+    const matchSub = buscando || filtroActual !== "restaurantes" || subFiltroActual === "todos" || lugar.subcat === subFiltroActual;
     const matchSearch = textoBusqueda === "" || 
       lugar.nombre.toLowerCase().includes(textoBusqueda.toLowerCase()) ||
       lugar.desc.toLowerCase().includes(textoBusqueda.toLowerCase());
@@ -611,8 +918,6 @@ function renderizar() {
       filtrados.sort((a, b) => a.distancia - b.distancia);
     }
   }
-  
-  const container = document.getElementById('cardsContainer');
   
   document.getElementById('countBadge').innerText = filtrados.length;
 
@@ -646,7 +951,7 @@ function renderizar() {
           </div>
           ${esInterprete
             ? `<span class="map-link" style="opacity:0.6; cursor:default;">🚧 Página en construcción</span>`
-            : `<a class="map-link" href="#" onclick="event.stopPropagation(); abrirPerfil(${lugar.placeId ? `'${lugar.placeId}'` : 'null'}, '${lugar.nombre.replace(/'/g, "\\'")}', ${lugar.lat}, ${lugar.lng}); return false;">Ver perfil →</a>`}
+            : `<a class="map-link" href="#" onclick="event.stopPropagation(); abrirPerfil(${lugar.placeId ? `'${lugar.placeId}'` : 'null'}, '${(lugar.nombreMaps || lugar.nombre).replace(/'/g, "\\'")}', ${lugar.lat}, ${lugar.lng}, ${lugar.usarCoords ? 'true' : 'false'}, ${lugar.mapsUrl ? `'${lugar.mapsUrl}'` : 'null'}); return false;">Ver perfil →</a>`}
         </div>
       </div>
     `;
@@ -669,9 +974,10 @@ function cambiarFiltro(categoria, elemento) {
   
   const titulos = {
     todos: '📍 Todos los lugares',
+    programacion: '🎉 Programación Feria Vijes 2026',
     hoteles: '🏨 Hoteles y Hospedaje',
     restaurantes: '🍽️ Restaurantes',
-    dulces: '🍬 Dulces Típicos',
+    dulces: '🍲 Dulces Típicos',
     cafeterias: '☕ Cafeterías',
     heladerias: '🍦 Heladerías',
     rapidas: '🍔 Comidas Rápidas',
@@ -688,10 +994,33 @@ function cambiarFiltro(categoria, elemento) {
   const subfiltersEl = document.getElementById('subfilters');
   if (categoria === 'restaurantes') {
     subfiltersEl.style.display = 'flex';
-    document.querySelectorAll('.subfilter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.subfilter-btn[data-sub]').forEach(b => b.classList.remove('active'));
     document.querySelector('.subfilter-btn[data-sub="todos"]').classList.add('active');
   } else {
     subfiltersEl.style.display = 'none';
+  }
+
+  subFiltroFeriaActual = "todos";
+  const subfiltersFeriaEl = document.getElementById('subfiltersFeria');
+  if (categoria === 'programacion') {
+    subfiltersFeriaEl.style.display = 'flex';
+    document.querySelectorAll('.subfilter-btn[data-subferia]').forEach(b => b.classList.remove('active'));
+    document.querySelector('.subfilter-btn[data-subferia="todos"]').classList.add('active');
+  } else {
+    subfiltersFeriaEl.style.display = 'none';
+  }
+
+  const toolbarEl = document.querySelector('.toolbar');
+  const searchBoxEl = document.querySelector('.search-box');
+  const countBadgeEl = document.getElementById('countBadge');
+  if (categoria === 'programacion') {
+    toolbarEl.style.display = 'none';
+    searchBoxEl.style.display = 'none';
+    countBadgeEl.style.display = 'none';
+  } else {
+    toolbarEl.style.display = 'flex';
+    searchBoxEl.style.display = 'flex';
+    countBadgeEl.style.display = 'inline-block';
   }
 
   renderizar();
@@ -700,7 +1029,15 @@ function cambiarFiltro(categoria, elemento) {
 // Cambiar subcategoría (solo dentro de Restaurantes)
 function cambiarSubfiltro(sub, elemento) {
   subFiltroActual = sub;
-  document.querySelectorAll('.subfilter-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('#subfilters .subfilter-btn').forEach(btn => btn.classList.remove('active'));
+  elemento.classList.add('active');
+  renderizar();
+}
+
+// Cambiar día (solo dentro de Programación Feria)
+function cambiarSubfiltroFeria(dia, elemento) {
+  subFiltroFeriaActual = dia;
+  document.querySelectorAll('#subfiltersFeria .subfilter-btn').forEach(btn => btn.classList.remove('active'));
   elemento.classList.add('active');
   renderizar();
 }
@@ -725,7 +1062,13 @@ function toggleOrdenarDistancia() {
 
 // Eventos
 document.getElementById('searchInput').addEventListener('input', filtrarBusqueda);
-document.getElementById('miUbicacionBtnHeader').addEventListener('click', obtenerMiUbicacion);
+document.getElementById('btnActivarUbicacionModal').addEventListener('click', () => {
+  obtenerMiUbicacion();
+  document.getElementById('modalUbicacion').classList.remove('visible');
+});
+document.getElementById('btnCerrarModalUbicacion').addEventListener('click', () => {
+  document.getElementById('modalUbicacion').classList.remove('visible');
+});
 document.getElementById('sortDistanciaBtn').addEventListener('click', toggleOrdenarDistancia);
 
 document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -734,14 +1077,30 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-document.querySelectorAll('.subfilter-btn').forEach(btn => {
+document.querySelectorAll('#subfilters .subfilter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     cambiarSubfiltro(btn.dataset.sub, btn);
   });
 });
 
+document.querySelectorAll('#subfiltersFeria .subfilter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    cambiarSubfiltroFeria(btn.dataset.subferia, btn);
+  });
+});
+
 // Inicializar todo
 renderizar();
+
+// Mostrar el modal de ubicación al cargar (si aún no se ha concedido)
+setTimeout(() => {
+  if (!ubicacionActual) {
+    document.getElementById('modalUbicacion').classList.add('visible');
+  }
+}, 1200);
+
+const sugerenciasSubcat={tradicional:['🍛 Comida típica','🍲 Almuerzos','☕ Café','🥤 Bebidas'],parrilla:['🥩 Carnes','🍗 Pollo','🍟 Acompañamientos','🥤 Bebidas'],pizza:['🍕 Pizza','🍝 Pasta','🥤 Bebidas'],cafeteria:['☕ Café','🥐 Pan','🍰 Postres'],comidarapida:['🍔 Hamburguesas','🌭 Perros','🍟 Papas','🥤 Bebidas']};
+function bloqueEncontraras(subcat){const a=sugerenciasSubcat[(subcat||'').toLowerCase().replace(/\s/g,'')]||[]; if(!a.length)return ''; return `<div class="encontraras"><b>🍽️ ¿Qué encontrarás?</b><br>${a.join('<br>')}</div>`;}
 </script>
 </body>
 </html>
